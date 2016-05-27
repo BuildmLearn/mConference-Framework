@@ -1,7 +1,6 @@
 package org.buildmlearn.mconference.conference;
 
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,10 +9,7 @@ import android.view.ViewGroup;
 
 import org.buildmlearn.mconference.R;
 
-/**
- * A simple {@link Fragment} subclass.
- *
- */
+
 public class Sponsor extends Fragment {
 
 
