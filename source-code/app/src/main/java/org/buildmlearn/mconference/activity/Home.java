@@ -3,6 +3,8 @@ package org.buildmlearn.mconference.activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import org.buildmlearn.mconference.R;
+
 public class Home extends AppCompatActivity {
 
     @Override
