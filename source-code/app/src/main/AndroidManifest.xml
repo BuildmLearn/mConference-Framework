@@ -22,8 +22,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.Home" />
-        <activity android:name=".activity.Schedule"
-            android:label="@string/title_schedule"></activity>
+        <activity
+            android:name=".activity.Schedule"
+            android:label="@string/title_schedule" />
+        <activity
+            android:name=".activity.Talk"
+            android:label="@string/title_talk"></activity>
     </application>
 
 </manifest>
