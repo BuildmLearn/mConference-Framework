@@ -2,6 +2,7 @@
     <string name="app_name">mConference</string>
 
     <string name="title_activity_splash">Splash</string>
+    <string name="title_schedule">Schedule</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

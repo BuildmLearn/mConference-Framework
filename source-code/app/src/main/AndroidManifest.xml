@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.buildmlearn.mconference">
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -20,7 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.Home"></activity>
+        <activity android:name=".activity.Home" />
+        <activity android:name=".activity.Schedule"
+            android:label="@string/title_schedule"></activity>
     </application>
 
 </manifest>
