@@ -25,7 +25,7 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
             toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+            setSupportActionBar(toolbar);
 
             viewPager = (ViewPager) findViewById(R.id.viewpager);
             setupViewPager(viewPager);
@@ -40,7 +40,6 @@ public class Home extends AppCompatActivity {
             adapter.addFragment(new Venue(), "Venue");
             adapter.addFragment(new Register(), "Register");
             adapter.addFragment(new Sponsor(), "Sponsors");
-            viewPager.setOffscreenPageLimit(0);
             viewPager.setAdapter(adapter);
         }
     }

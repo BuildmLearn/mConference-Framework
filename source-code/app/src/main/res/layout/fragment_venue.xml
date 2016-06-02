@@ -4,5 +4,52 @@
     android:layout_height="match_parent"
     tools:context="org.buildmlearn.mconference.conference.Venue">
 
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_margin="20dp"/>
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="20dp"
+        card_view:cardCornerRadius="4dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp">
+
+            <TextView
+                android:id="@+id/venue_title"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:text="Venue"
+                android:textSize="20dp"
+                android:textColor="#1976D2"/>
+
+            <View
+                android:id="@+id/venue_line"
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/venue_title"
+                android:background="#000000"/>
+
+            <TextView
+                android:id="@+id/venue_detail"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_below="@id/venue_line"
+                android:layout_marginTop="10dp"
+                android:textSize="25dp"/>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
 
 </FrameLayout>
