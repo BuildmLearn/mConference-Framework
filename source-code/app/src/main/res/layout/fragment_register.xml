@@ -9,12 +9,12 @@
         android:layout_height="match_parent">
 
         <ProgressBar
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="?android:attr/progressBarStyleHorizontal"
             android:id="@+id/loading"
             android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            style="@android:style/Widget.ProgressBar.Small"/>
 
         <WebView
             android:layout_width="fill_parent"

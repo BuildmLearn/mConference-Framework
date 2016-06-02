@@ -29,6 +29,7 @@ public class Register extends Fragment {
 
         webview = (WebView)view.findViewById(R.id.web);
         pbar = (ProgressBar)view.findViewById(R.id.loading);
+        pbar.setVisibility(View.GONE);
         webview.setWebViewClient(new WebViewClient());
         webview.getSettings().setJavaScriptEnabled(true);
         webview.loadUrl("http://www.google.com");
@@ -41,6 +42,8 @@ public class Register extends Fragment {
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
             super.onPageStarted(view, url, favicon);
+            pbar.setVisibility(View.VISIBLE);
+            pbar.setProgress(0);
         }
 
         @Override
@@ -52,7 +55,7 @@ public class Register extends Fragment {
         public void onPageFinished(WebView view, String url) {
             super.onPageFinished(view, url);
             pbar.setVisibility(View.GONE);
-
+            pbar.setProgress(100);
         }
 
     }
