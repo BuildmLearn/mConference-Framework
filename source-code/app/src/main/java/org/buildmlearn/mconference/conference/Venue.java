@@ -1,10 +1,12 @@
 package org.buildmlearn.mconference.conference;
 
+import android.location.Address;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -21,6 +23,7 @@ public class Venue extends Fragment {
 
     MapView mMapView;
     private GoogleMap googleMap;
+    TextView VenueAddress;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -29,6 +32,8 @@ public class Venue extends Fragment {
         View v = inflater.inflate(R.layout.fragment_venue, container,
                 false);
         mMapView = (MapView) v.findViewById(R.id.mapView);
+        VenueAddress = (TextView) v.findViewById(R.id.venue_detail);
+        VenueAddress.setText("Venue Address");
         mMapView.onCreate(savedInstanceState);
 
         mMapView.onResume();// needed to get the map to display immediately

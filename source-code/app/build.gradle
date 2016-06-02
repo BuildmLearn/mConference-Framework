@@ -10,6 +10,7 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
     }
 
     dexOptions {
@@ -35,4 +36,5 @@ dependencies {
     compile 'com.android.support:design:23.1.1'
     compile 'com.google.android.gms:play-services-maps:9.0.1'
     compile 'com.google.maps:google-maps-services:0.1.14'
+    compile 'com.android.support:multidex:1.0.1'
 }
