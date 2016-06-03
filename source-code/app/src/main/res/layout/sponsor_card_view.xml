@@ -40,7 +40,7 @@
             <ImageView
                 android:id="@+id/sponsor_img"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="150dp"
                 android:layout_below="@id/sponsor_line"
                 android:paddingTop="15dp"
                 android:paddingBottom="10dp"

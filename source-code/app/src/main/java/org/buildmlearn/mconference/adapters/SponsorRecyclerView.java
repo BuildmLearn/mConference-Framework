@@ -52,7 +52,8 @@ public class SponsorRecyclerView extends RecyclerView.Adapter<SponsorRecyclerVie
     public void onBindViewHolder(SponsorDetailsObject holder, int position) {
         holder.sponsorName.setText(sponsors.get(position).getName());
         Picasso.with(holder.sponsorImage.getContext())
-                .load(Uri.parse(sponsors.get(position).getLogoURL())).into(holder.sponsorImage);
+                .load(Uri.parse(sponsors.get(position).getLogoURL()))
+                .fit().centerInside().into(holder.sponsorImage);
     }
 
     @Override
