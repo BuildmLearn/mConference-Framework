@@ -15,7 +15,7 @@
         android:id="@+id/venue_card"
         android:layout_gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:layout_below="@+id/mapView"
         card_view:cardCornerRadius="4dp">
@@ -23,31 +23,33 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp">
+                android:layout_margin="10dp">
 
-            <TextView
-                android:id="@+id/venue_title"
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:text="Venue"
-                android:textSize="20dp"
-                android:textColor="#1976D2"/>
+                <TextView
+                    android:id="@+id/venue_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:text="Venue"
+                    android:textSize="15dp"
+                    android:textColor="#1976D2"/>
 
-            <View
-                android:id="@+id/venue_line"
-                android:layout_width="fill_parent"
-                android:layout_height="0.5dp"
-                android:layout_below="@+id/venue_title"
-                android:background="#000000"/>
+                <View
+                    android:id="@+id/venue_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_below="@+id/venue_title"
+                    android:background="#000000"/>
 
-            <TextView
-                android:id="@+id/venue_detail"
-                android:layout_width="match_parent"
-                android:layout_height="65dp"
-                android:layout_below="@id/venue_line"
-                android:layout_marginTop="10dp"
-                android:textSize="25dp"/>
+                <TextView
+                    android:id="@+id/venue_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/venue_line"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="#757575"
+                    android:textSize="18dp"/>
 
         </RelativeLayout>
 
