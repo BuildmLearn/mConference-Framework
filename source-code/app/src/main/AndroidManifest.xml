@@ -35,7 +35,11 @@
             android:label="@string/title_schedule" />
         <activity
             android:name=".activity.Talk"
-            android:label="@string/title_talk"></activity>
+            android:label="@string/title_talk">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.Schedule" />
+        </activity>
     </application>
 
 </manifest>

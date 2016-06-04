@@ -72,5 +72,7 @@ public class TalkDetails implements Serializable{
 
         for (int i=0; i<6 && i<desc.length(); i++)
             shortDesc += splitDesc[i] + " ";
+
+        shortDesc += "...";
     }
 }
