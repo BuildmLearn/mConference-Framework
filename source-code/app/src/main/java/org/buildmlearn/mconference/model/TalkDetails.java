@@ -1,9 +1,11 @@
 package org.buildmlearn.mconference.model;
 
+import java.io.Serializable;
+
 /**
  * Created by jai on 4/6/16.
  */
-public class TalkDetails {
+public class TalkDetails implements Serializable{
     private String name;
     private String imageURL;
     private String time;
