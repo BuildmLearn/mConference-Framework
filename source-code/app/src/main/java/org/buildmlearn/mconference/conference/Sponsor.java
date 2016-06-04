@@ -36,7 +36,7 @@ public class Sponsor extends Fragment {
         sponsorRecyclerView.setHasFixedSize(true);
         sponsorRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        ArrayList<SponsorDetails> dummySponsors = new ArrayList<>(4);
+        ArrayList<SponsorDetails> dummySponsors = new ArrayList<>(3);
         dummySponsors.add(new SponsorDetails("Sponsor #1","https://mir-s3-cdn-cf.behance.net/project_modules/disp/3fe6027858667.55e61091bc63d.jpg"));
         dummySponsors.add(new SponsorDetails("Sponsor #2" , "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSJqpA4Kx0817SYkXx4eZKRTOKXBjZOhHIc4mIkevic2qyaqvco"));
         dummySponsors.add(new SponsorDetails("Sponsor #3", "https://developers.google.com/open-source/gsoc/images/gsoc2016-sun-373x373.png"));

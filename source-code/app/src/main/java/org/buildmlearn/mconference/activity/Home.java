@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import org.buildmlearn.mconference.R;
-import org.buildmlearn.mconference.adapters.ConferenceDetailsAdapter;
+import org.buildmlearn.mconference.adapters.TabAdapter;
 import org.buildmlearn.mconference.conference.About;
 import org.buildmlearn.mconference.conference.Venue;
 import org.buildmlearn.mconference.conference.Register;
@@ -35,7 +35,7 @@ public class Home extends AppCompatActivity {
         }
 
         private void setupViewPager(ViewPager viewPager) {
-            ConferenceDetailsAdapter adapter = new ConferenceDetailsAdapter(getSupportFragmentManager());
+            TabAdapter adapter = new TabAdapter(getSupportFragmentManager());
             adapter.addFragment(new About(), "About");
             adapter.addFragment(new Venue(), "Venue");
             adapter.addFragment(new Register(), "Register");

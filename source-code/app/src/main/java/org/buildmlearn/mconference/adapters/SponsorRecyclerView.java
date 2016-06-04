@@ -24,13 +24,11 @@ public class SponsorRecyclerView extends RecyclerView.Adapter<SponsorRecyclerVie
     private ArrayList<SponsorDetails> sponsors;
 
     public static class SponsorDetailsObject extends RecyclerView.ViewHolder {
-        CardView sponsorCardView;
         TextView sponsorName;
         ImageView sponsorImage;
 
         public SponsorDetailsObject(View view) {
             super(view);
-            sponsorCardView = (CardView) view.findViewById(R.id.sponsor_card_view);
             sponsorName = (TextView) view.findViewById(R.id.sponsor_name);
             sponsorImage = (ImageView) view.findViewById(R.id.sponsor_img);
         }
