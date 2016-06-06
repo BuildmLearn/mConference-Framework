@@ -36,11 +36,11 @@ public class DayFragment extends Fragment {
         dayRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         ArrayList<TalkDetails> dummyTalks = new ArrayList<>(3);
-        dummyTalks.add(new TalkDetails("Talk #1", "https://mir-s3-cdn-cf.behance.net/project_modules/disp/3fe6027858667.55e61091bc63d.jpg",
+        dummyTalks.add(new TalkDetails("Talk #1", "http://blogs.gartner.com/smarterwithgartner/files/2015/03/Guy_Kawasaki_1_inline.jpg",
                 "10:00 AM - 11:00 AM", "ALbert Hall", getResources().getString(R.string.lorem)));
-        dummyTalks.add(new TalkDetails("Talk #2", "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSJqpA4Kx0817SYkXx4eZKRTOKXBjZOhHIc4mIkevic2qyaqvco",
+        dummyTalks.add(new TalkDetails("Talk #2", "",
                 "1:00 PM - 2:00 PM", "Nehru Hall", getResources().getString(R.string.lorem)));
-        dummyTalks.add(new TalkDetails("Talk #3", "https://mir-s3-cdn-cf.behance.net/project_modules/disp/3fe6027858667.55e61091bc63d.jpg",
+        dummyTalks.add(new TalkDetails("Talk #3", "http://static.dnaindia.com/sites/default/files/styles/half/public/2016/01/12/413826-swami.jpg",
                 "3:00 PM - 5:00 AM", "Gandhi Hall", getResources().getString(R.string.lorem)));
 
         DayRecyclerView dayAdapter = new DayRecyclerView(dummyTalks);
