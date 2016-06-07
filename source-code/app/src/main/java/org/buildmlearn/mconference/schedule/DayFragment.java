@@ -14,6 +14,7 @@ import org.buildmlearn.mconference.adapters.DayRecyclerView;
 import org.buildmlearn.mconference.model.TalkDetails;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -37,11 +38,11 @@ public class DayFragment extends Fragment {
 
         ArrayList<TalkDetails> dummyTalks = new ArrayList<>(3);
         dummyTalks.add(new TalkDetails("Talk #1", "http://blogs.gartner.com/smarterwithgartner/files/2015/03/Guy_Kawasaki_1_inline.jpg",
-                "10:00 AM - 11:00 AM", "ALbert Hall", getResources().getString(R.string.lorem)));
+                new Date(1472704200000l), new Date(1472707800000l),"Albert Hall", getResources().getString(R.string.lorem)));
         dummyTalks.add(new TalkDetails("Talk #2", "",
-                "1:00 PM - 2:00 PM", "Nehru Hall", getResources().getString(R.string.lorem)));
+                new Date(1472715000000l), new Date(1472718600000l), "Nehru Hall", getResources().getString(R.string.lorem)));
         dummyTalks.add(new TalkDetails("Talk #3", "http://static.dnaindia.com/sites/default/files/styles/half/public/2016/01/12/413826-swami.jpg",
-                "3:00 PM - 5:00 AM", "Gandhi Hall", getResources().getString(R.string.lorem)));
+                new Date(1472722200000l), new Date(1472729400000l), "Gandhi Hall", getResources().getString(R.string.lorem)));
 
         DayRecyclerView dayAdapter = new DayRecyclerView(dummyTalks);
         dayRecyclerView.setAdapter(dayAdapter);

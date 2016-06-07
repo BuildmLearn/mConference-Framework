@@ -2,6 +2,7 @@ package org.buildmlearn.mconference.adapters;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.provider.CalendarContract;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import org.buildmlearn.mconference.activity.Schedule;
 import org.buildmlearn.mconference.activity.Talk;
 import org.buildmlearn.mconference.model.TalkDetails;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 /**
@@ -33,6 +35,7 @@ public class DayRecyclerView extends RecyclerView.Adapter<DayRecyclerView.TalkDe
         TextView talkTime;
         TextView talkLocation;
         TextView talkShortDesc;
+        Button reminder;
         Button readMore;
 
         public TalkDetailsObject(View view) {
@@ -42,6 +45,7 @@ public class DayRecyclerView extends RecyclerView.Adapter<DayRecyclerView.TalkDe
             talkTime = (TextView) view.findViewById(R.id.talk_time);
             talkLocation = (TextView) view.findViewById(R.id.talk_location);
             talkShortDesc = (TextView) view.findViewById(R.id.talk_desc_short);
+            reminder = (Button) view.findViewById(R.id.reminder);
             readMore = (Button) view.findViewById(R.id.read_more);
         }
     }
@@ -65,9 +69,34 @@ public class DayRecyclerView extends RecyclerView.Adapter<DayRecyclerView.TalkDe
                 .error(R.drawable.placeholder_1)
                 .fit().centerCrop().into(holder.talkImage);
         holder.talkName.setText(talks.get(position).getName());
-        holder.talkTime.setText(talks.get(position).getTime());
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm a");
+        String talkTimeText = dateFormat.format(talks.get(position).getStartTime())
+                + " - " + dateFormat.format(talks.get(position).getEndTime());
+        holder.talkTime.setText(talkTimeText);
+
         holder.talkLocation.setText(talks.get(position).getLocation());
         holder.talkShortDesc.setText(talks.get(position).getShortDesc());
+
+        holder.reminder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_EDIT);
+                intent.setType("vnd.android.cursor.item/event");
+                intent.putExtra(CalendarContract.Events.TITLE,
+                        talks.get(position).getName());
+                intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME,
+                        talks.get(position).getStartTime().getTime());
+                intent.putExtra(CalendarContract.Events.EVENT_LOCATION,
+                        talks.get(position).getLocation());
+                intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME,
+                        talks.get(position).getEndTime().getTime());
+                intent.putExtra(CalendarContract.Events.ALL_DAY, false);
+                intent.putExtra(CalendarContract.Events.DESCRIPTION,
+                        talks.get(position).getShortDesc());
+                v.getContext().startActivity(intent);
+            }
+        });
 
         holder.readMore.setOnClickListener(new View.OnClickListener() {
             @Override

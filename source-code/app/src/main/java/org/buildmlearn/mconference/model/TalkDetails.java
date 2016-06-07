@@ -1,6 +1,7 @@
 package org.buildmlearn.mconference.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by jai on 4/6/16.
@@ -8,15 +9,17 @@ import java.io.Serializable;
 public class TalkDetails implements Serializable{
     private String name;
     private String imageURL;
-    private String time;
+    private Date startTime;
+    private Date endTime;
     private String location;
     private String desc;
     private String shortDesc;
 
-    public TalkDetails(String name, String imageURL, String time, String location, String desc) {
+    public TalkDetails(String name, String imageURL, Date startTime, Date endTime, String location, String desc) {
         this.name = name;
         this.imageURL = imageURL;
-        this.time = time;
+        this.startTime = startTime;
+        this.endTime = endTime;
         this.location = location;
         this.desc = desc;
         setShortDesc();
@@ -38,12 +41,20 @@ public class TalkDetails implements Serializable{
         this.name = name;
     }
 
-    public String getTime() {
-        return time;
+    public Date getStartTime() {
+        return startTime;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
+    }
+
+    public Date getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
     }
 
     public String getLocation() {
