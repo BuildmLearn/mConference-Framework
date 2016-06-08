@@ -109,6 +109,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/talk_venue_card"
             android:layout_marginTop="20dp"
+            android:layout_marginBottom="30dp"
             card_view:cardCornerRadius="4dp">
 
             <RelativeLayout

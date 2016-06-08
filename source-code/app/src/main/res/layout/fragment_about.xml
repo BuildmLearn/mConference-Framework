@@ -35,8 +35,8 @@
                     android:layout_marginRight="74dp"
                     android:layout_below="@+id/about_image"
                     android:paddingLeft="23dp"
-                    android:paddingTop="9dp"
-                    android:paddingBottom="9dp"/>
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"/>
 
                 <TextView
                     android:id="@+id/conference_desc"
