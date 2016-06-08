@@ -1,8 +1,13 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbars="none"
     tools:context="org.buildmlearn.mconference.conference.Venue">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/mapView"
@@ -56,3 +61,4 @@
     </android.support.v7.widget.CardView>
 
 </RelativeLayout>
+</ScrollView>
