@@ -2,15 +2,17 @@ package org.buildmlearn.mconference.activity;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.widget.BaseAdapter;
 
 import org.buildmlearn.mconference.R;
 import org.buildmlearn.mconference.adapters.TabAdapter;
 import org.buildmlearn.mconference.schedule.DayFragment;
 
-public class Schedule extends AppCompatActivity {
+public class Schedule extends BaseActivity {
 
     private Toolbar toolbar;
     private TabLayout tabLayout;
@@ -20,12 +22,14 @@ public class Schedule extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_schedule);
+        getLayoutInflater().inflate(R.layout.activity_schedule, frameLayout);
 
         noOfDays = 3;
 
         toolbar = (Toolbar) findViewById(R.id.schedule_toolbar);
         setSupportActionBar(toolbar);
+
+        super.setUpNavDrawer(toolbar);
 
         viewPager = (ViewPager) findViewById(R.id.schedule_viewpager);
         setupViewPager(viewPager);

@@ -1,5 +1,6 @@
 package org.buildmlearn.mconference.activity;
 
+import android.support.v7.app.ActionBar;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -13,7 +14,7 @@ import org.buildmlearn.mconference.conference.Venue;
 import org.buildmlearn.mconference.conference.Register;
 import org.buildmlearn.mconference.conference.Sponsor;
 
-public class Home extends AppCompatActivity {
+public class Home extends BaseActivity {
 
     private Toolbar toolbar;
     private TabLayout tabLayout;
@@ -21,11 +22,13 @@ public class Home extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+            super.onCreate(savedInstanceState);
+            getLayoutInflater().inflate(R.layout.activity_home, frameLayout);
 
             toolbar = (Toolbar) findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);
+
+            super.setUpNavDrawer(toolbar);
 
             viewPager = (ViewPager) findViewById(R.id.viewpager);
             setupViewPager(viewPager);
@@ -42,4 +45,4 @@ public class Home extends AppCompatActivity {
             adapter.addFragment(new Sponsor(), "Sponsors");
             viewPager.setAdapter(adapter);
         }
-    }
+}
