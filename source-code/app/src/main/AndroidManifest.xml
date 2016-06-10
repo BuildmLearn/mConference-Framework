@@ -32,7 +32,8 @@
         <activity android:name=".activity.Home" />
         <activity
             android:name=".activity.Schedule"
-            android:label="@string/title_schedule" />
+            android:label="@string/title_schedule"
+            android:launchMode="singleTop"/>
         <activity
             android:name=".activity.Talk"
             android:label="@string/title_talk">
