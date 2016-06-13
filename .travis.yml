@@ -4,15 +4,3 @@ language: android
 
 jdk:
   - oraclejdk7
-
-android:
-  components:
-    # Uncomment the lines below if you want to
-    # use the latest revision of Android SDK Tools
-    - tools
-    - platform-tools
-    - android-23
-    - build-tools-23.0.2
-    - extra-android-m2repository
-    - extra-android-support
-    - extra-google-m2repository
