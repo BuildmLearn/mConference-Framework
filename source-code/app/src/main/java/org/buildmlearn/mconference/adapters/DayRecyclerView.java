@@ -112,4 +112,10 @@ public class DayRecyclerView extends RecyclerView.Adapter<DayRecyclerView.TalkDe
     public int getItemCount() {
         return talks.size();
     }
+
+    public void setFilter(ArrayList<TalkDetails> talksList) {
+        talks = new ArrayList<>();
+        talks.addAll(talksList);
+        notifyDataSetChanged();
+    }
 }
