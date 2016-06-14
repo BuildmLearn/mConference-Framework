@@ -14,9 +14,6 @@ import org.buildmlearn.mconference.schedule.DayFragment;
 
 public class Schedule extends BaseActivity {
 
-    private Toolbar toolbar;
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
     private int noOfDays;
 
     @Override
@@ -26,15 +23,15 @@ public class Schedule extends BaseActivity {
 
         noOfDays = 3;
 
-        toolbar = (Toolbar) findViewById(R.id.schedule_toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.schedule_toolbar);
         setSupportActionBar(toolbar);
 
         super.setUpNavDrawer(toolbar);
 
-        viewPager = (ViewPager) findViewById(R.id.schedule_viewpager);
+        ViewPager viewPager = (ViewPager) findViewById(R.id.schedule_viewpager);
         setupViewPager(viewPager);
 
-        tabLayout = (TabLayout) findViewById(R.id.schedule_tabs);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.schedule_tabs);
         tabLayout.setupWithViewPager(viewPager);
     }
 

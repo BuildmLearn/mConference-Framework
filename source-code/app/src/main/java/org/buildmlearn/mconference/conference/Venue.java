@@ -1,6 +1,5 @@
 package org.buildmlearn.mconference.conference;
 
-import android.location.Address;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -22,7 +21,6 @@ import org.buildmlearn.mconference.R;
 public class Venue extends Fragment {
 
     MapView mMapView;
-    private GoogleMap googleMap;
     TextView VenueAddress;
 
     @Override
@@ -44,7 +42,7 @@ public class Venue extends Fragment {
             e.printStackTrace();
         }
 
-        googleMap = mMapView.getMap();
+        GoogleMap googleMap = mMapView.getMap();
 
         double latitude = 17.385044;
         double longitude = 78.486671;

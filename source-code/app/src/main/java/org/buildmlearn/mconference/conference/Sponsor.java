@@ -1,6 +1,5 @@
 package org.buildmlearn.mconference.conference;
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,19 +17,13 @@ import java.util.ArrayList;
 
 public class Sponsor extends Fragment {
 
-
-    public Sponsor() {
-        // Required empty public constructor
-    }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_sponsor, container, false);
 
-        boolean webPageprovided = false;
+        // boolean webPageprovided = false;
 
         RecyclerView sponsorRecyclerView = (RecyclerView) view.findViewById(R.id.sponsor_recycler_view);
         sponsorRecyclerView.setHasFixedSize(true);

@@ -1,6 +1,5 @@
 package org.buildmlearn.mconference.conference;
 
-
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,12 +13,6 @@ import org.buildmlearn.mconference.R;
 
 public class Register extends Fragment {
 
-
-    public Register() {
-        // Required empty public constructor
-    }
-
-    WebView webview;
     ProgressBar pbar;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,7 +20,7 @@ public class Register extends Fragment {
         super.onCreate(savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_register, container, false);
 
-        webview = (WebView)view.findViewById(R.id.web);
+        WebView webview = (WebView)view.findViewById(R.id.web);
         pbar = (ProgressBar)view.findViewById(R.id.loading);
         pbar.setVisibility(View.GONE);
         webview.setWebViewClient(new WebViewClient());

@@ -15,10 +15,6 @@ public class About extends Fragment {
 
     Button scheduleButton;
 
-    public About() {
-        // Required empty public constructor
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
