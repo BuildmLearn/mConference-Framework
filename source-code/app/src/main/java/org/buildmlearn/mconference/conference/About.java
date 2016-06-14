@@ -13,14 +13,12 @@ import org.buildmlearn.mconference.activity.Schedule;
 
 public class About extends Fragment {
 
-    private Button scheduleButton;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_about, container, false);
-        scheduleButton = (Button) view.findViewById(R.id.schedule_button);
+        Button scheduleButton = (Button) view.findViewById(R.id.schedule_button);
 
         scheduleButton.setOnClickListener(new View.OnClickListener() {
             @Override

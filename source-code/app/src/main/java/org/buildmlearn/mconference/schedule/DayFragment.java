@@ -6,13 +6,14 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.SearchView;
 
 import org.buildmlearn.mconference.R;
 import org.buildmlearn.mconference.adapters.DayRecyclerView;
@@ -29,6 +30,8 @@ public class DayFragment extends Fragment implements SearchView.OnQueryTextListe
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        setHasOptionsMenu(true);
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_day, container, false);
         RecyclerView dayRecyclerView = (RecyclerView) view.findViewById(R.id.day_recycler_view);
@@ -56,6 +59,22 @@ public class DayFragment extends Fragment implements SearchView.OnQueryTextListe
         MenuItem item = menu.findItem(R.id.schedule_search);
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(item);
         searchView.setOnQueryTextListener(this);
+
+
+        MenuItemCompat.setOnActionExpandListener(item, new MenuItemCompat.OnActionExpandListener() {
+            @Override
+            public boolean onMenuItemActionExpand(MenuItem item) {
+                return true;
+            }
+
+            @Override
+            public boolean onMenuItemActionCollapse(MenuItem item) {
+                Log.d("Reached","Menu Collapse menu");
+                dayAdapter.setFilter(dummyTalks);
+
+                return true;
+            }
+        });
     }
 
     @Override
