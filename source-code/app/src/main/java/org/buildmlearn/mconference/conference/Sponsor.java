@@ -14,7 +14,6 @@ import org.buildmlearn.mconference.model.SponsorDetails;
 
 import java.util.ArrayList;
 
-
 public class Sponsor extends Fragment {
 
     @Override

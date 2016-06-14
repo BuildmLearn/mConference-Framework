@@ -20,8 +20,7 @@ import org.buildmlearn.mconference.R;
 
 public class Venue extends Fragment {
 
-    MapView mMapView;
-    TextView VenueAddress;
+    private MapView mMapView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,7 +29,7 @@ public class Venue extends Fragment {
         View v = inflater.inflate(R.layout.fragment_venue, container,
                 false);
         mMapView = (MapView) v.findViewById(R.id.mapView);
-        VenueAddress = (TextView) v.findViewById(R.id.venue_detail);
+        TextView VenueAddress = (TextView) v.findViewById(R.id.venue_detail);
         VenueAddress.setText("Venue Address");
         mMapView.onCreate(savedInstanceState);
 

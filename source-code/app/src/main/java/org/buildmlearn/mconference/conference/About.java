@@ -13,7 +13,7 @@ import org.buildmlearn.mconference.activity.Schedule;
 
 public class About extends Fragment {
 
-    Button scheduleButton;
+    private Button scheduleButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

@@ -14,7 +14,6 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import org.buildmlearn.mconference.R;
-import org.buildmlearn.mconference.activity.Schedule;
 import org.buildmlearn.mconference.activity.Talk;
 import org.buildmlearn.mconference.model.TalkDetails;
 
@@ -30,13 +29,13 @@ public class DayRecyclerView extends RecyclerView.Adapter<DayRecyclerView.TalkDe
 
     public static class TalkDetailsObject extends RecyclerView.ViewHolder {
 
-        TextView talkName;
-        ImageView talkImage;
-        TextView talkTime;
-        TextView talkLocation;
-        TextView talkShortDesc;
-        Button reminder;
-        Button readMore;
+        public TextView talkName;
+        public ImageView talkImage;
+        public TextView talkTime;
+        public TextView talkLocation;
+        public TextView talkShortDesc;
+        public Button reminder;
+        public Button readMore;
 
         public TalkDetailsObject(View view) {
             super(view);

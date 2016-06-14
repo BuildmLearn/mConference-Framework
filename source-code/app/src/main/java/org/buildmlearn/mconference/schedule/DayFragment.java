@@ -20,28 +20,18 @@ import org.buildmlearn.mconference.model.TalkDetails;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class DayFragment extends Fragment implements SearchView.OnQueryTextListener {
 
-    RecyclerView dayRecyclerView;
-    ArrayList<TalkDetails> dummyTalks;
-    DayRecyclerView dayAdapter;
-
-    public DayFragment() {
-        // Required empty public constructor
-    }
-
+    private ArrayList<TalkDetails> dummyTalks;
+    private DayRecyclerView dayAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_day, container, false);
-        dayRecyclerView = (RecyclerView) view.findViewById(R.id.day_recycler_view);
+        RecyclerView dayRecyclerView = (RecyclerView) view.findViewById(R.id.day_recycler_view);
         dayRecyclerView.setHasFixedSize(true);
         dayRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
@@ -70,7 +60,7 @@ public class DayFragment extends Fragment implements SearchView.OnQueryTextListe
 
     @Override
     public boolean onQueryTextChange(String query) {
-        ArrayList<TalkDetails> filterList = filter(dummyTalks, query);
+        ArrayList<TalkDetails> filterList = filter(dummyTalks, query.toLowerCase());
         dayAdapter.setFilter(filterList);
         return  true;
     }
@@ -81,7 +71,6 @@ public class DayFragment extends Fragment implements SearchView.OnQueryTextListe
     }
 
     private ArrayList<TalkDetails> filter(ArrayList<TalkDetails> talks, String query) {
-        query = query.toLowerCase();
 
         ArrayList<TalkDetails> filteredList = new ArrayList<>();
         for (TalkDetails talkDetails:talks) {

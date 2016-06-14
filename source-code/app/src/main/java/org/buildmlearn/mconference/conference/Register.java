@@ -13,7 +13,8 @@ import org.buildmlearn.mconference.R;
 
 public class Register extends Fragment {
 
-    ProgressBar pbar;
+    private ProgressBar pbar;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                 Bundle savedInstanceState) {

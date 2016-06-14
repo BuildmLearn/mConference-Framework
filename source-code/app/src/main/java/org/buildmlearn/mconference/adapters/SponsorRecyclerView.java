@@ -1,7 +1,6 @@
 package org.buildmlearn.mconference.adapters;
 
 import android.net.Uri;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,8 +23,8 @@ public class SponsorRecyclerView extends RecyclerView.Adapter<SponsorRecyclerVie
     private ArrayList<SponsorDetails> sponsors;
 
     public static class SponsorDetailsObject extends RecyclerView.ViewHolder {
-        TextView sponsorName;
-        ImageView sponsorImage;
+        public TextView sponsorName;
+        public ImageView sponsorImage;
 
         public SponsorDetailsObject(View view) {
             super(view);
