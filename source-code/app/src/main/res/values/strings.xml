@@ -10,5 +10,8 @@
     <string name="nav_about">About the app</string>
     <string name="nav_settings">Settings</string>
     <string name="action_search">Search</string>
+    <string name="dialog_play_services_unavailable">Google Play Services are out of date or unavailable.</string>
+    <string name="dialog_download_play_services">Download</string>
+    <string name="dialog_close_program">Close</string>
     <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</string>
 </resources>

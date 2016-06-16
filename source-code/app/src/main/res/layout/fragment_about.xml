@@ -58,20 +58,6 @@
                     android:layout_marginLeft="25dp"
                     android:layout_marginRight="25dp"/>
 
-                <Button
-                    android:id="@+id/schedule_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/line"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginRight="25dp"
-                    android:layout_marginBottom="20dp"
-                    android:text="@string/title_schedule"
-                    android:textColor="#ffffff"
-                    android:background="#448AFF"
-                    android:padding="15dp"
-                    android:layout_alignParentRight="true"/>
-
             </RelativeLayout>
 
     </android.support.v4.widget.NestedScrollView>
