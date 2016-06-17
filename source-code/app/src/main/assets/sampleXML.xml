@@ -1,0 +1,50 @@
+<mconference>
+<name> Conference Name </name>
+<logo> http://www.example.com/logo.png </logo>
+<venue> Indian Habitat Centre, Delhi </venue>
+<time>
+    <start>1457802640000</start> <!-- Stored in milliseconds  -->
+    <end>1457893800000</end> <!-- Stored in milliseconds  -->
+</time>
+<splashbg type="image"> http://www.example.com/background.jpg </splashbg> <!-- Splash Background -->
+<aboutbg> http://www.example.com/image.jpg </aboutbg> <!-- Background in About Fragment -->
+<details> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </details> <!-- Conference Details-->
+<reglink> https://www.google.com/forms </reglink> <!-- Registration Web Link -->
+<sponsors type="individual"> <!-- Sponsors -->
+    <item id="1">
+        <desc> Sponsor #1 </desc>
+        <link> https://mir-s3-cdn-cf.behance.net/project_modules/disp/3fe6027858667.55e61091bc63d.jpg</link>
+    </item>
+    <item id="2">
+        <desc> Sponsor #2 </desc>
+        <link> https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSJqpA4Kx0817SYkXx4eZKRTOKXBjZOhHIc4mIkevic2qyaqvco</link>
+    </item>
+    <item id="3">
+        <desc> Sponsor #3 </desc>
+        <link> https://developers.google.com/open-source/gsoc/images/gsoc2016-sun-373x373.png</link>
+    </item>
+</sponsors>
+<talks>  <!-- Talks -->
+    <item id="1">
+        <desc> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </desc>
+        <start>1472704200000</start> <!-- Stored in milliseconds  -->
+        <end>1472707800000</end> <!-- Stored in milliseconds  -->
+        <location>Albert Hall</location>
+        <image> http://blogs.gartner.com/smarterwithgartner/files/2015/03/Guy_Kawasaki_1_inline.jpg </image>
+    </item>
+    <item id="2">
+        <desc> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </desc>
+        <start>1472715000000</start> <!-- Stored in milliseconds  -->
+        <end>1472718600000</end> <!-- Stored in milliseconds  -->
+        <location>Nehru Hall</location>
+        <image> http://www.example.com/talk2.jpg </image>
+    </item>
+    <item id="3">
+        <desc> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </desc>
+        <start>1472722200000</start> <!-- Stored in milliseconds  -->
+        <end>1472729400000</end> <!-- Stored in milliseconds  -->
+        <location>Gandhi Hall</location>
+        <image>http://static.dnaindia.com/sites/default/files/styles/half/public/2016/01/12/413826-swami.jpg</image>
+    </item>
+</talks>
+</mconference>
