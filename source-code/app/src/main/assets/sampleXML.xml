@@ -13,15 +13,15 @@
 <sponsors type="individual"> <!-- Sponsors -->
     <item id="1">
         <desc> Sponsor #1 </desc>
-        <link> https://mir-s3-cdn-cf.behance.net/project_modules/disp/3fe6027858667.55e61091bc63d.jpg</link>
+        <image> https://mir-s3-cdn-cf.behance.net/project_modules/disp/3fe6027858667.55e61091bc63d.jpg</image>
     </item>
     <item id="2">
         <desc> Sponsor #2 </desc>
-        <link> https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSJqpA4Kx0817SYkXx4eZKRTOKXBjZOhHIc4mIkevic2qyaqvco</link>
+        <image> https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSJqpA4Kx0817SYkXx4eZKRTOKXBjZOhHIc4mIkevic2qyaqvco</image>
     </item>
     <item id="3">
         <desc> Sponsor #3 </desc>
-        <link> https://developers.google.com/open-source/gsoc/images/gsoc2016-sun-373x373.png</link>
+        <image> https://developers.google.com/open-source/gsoc/images/gsoc2016-sun-373x373.png</image>
     </item>
 </sponsors>
 <talks>  <!-- Talks -->
@@ -29,21 +29,21 @@
         <desc> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </desc>
         <start>1472704200000</start> <!-- Stored in milliseconds  -->
         <end>1472707800000</end> <!-- Stored in milliseconds  -->
-        <location>Albert Hall</location>
+        <venue>Albert Hall</venue>
         <image> http://blogs.gartner.com/smarterwithgartner/files/2015/03/Guy_Kawasaki_1_inline.jpg </image>
     </item>
     <item id="2">
         <desc> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </desc>
         <start>1472715000000</start> <!-- Stored in milliseconds  -->
         <end>1472718600000</end> <!-- Stored in milliseconds  -->
-        <location>Nehru Hall</location>
+        <venue>Nehru Hall</venue>
         <image> http://www.example.com/talk2.jpg </image>
     </item>
     <item id="3">
         <desc> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </desc>
         <start>1472722200000</start> <!-- Stored in milliseconds  -->
         <end>1472729400000</end> <!-- Stored in milliseconds  -->
-        <location>Gandhi Hall</location>
+        <venue>Gandhi Hall</venue>
         <image>http://static.dnaindia.com/sites/default/files/styles/half/public/2016/01/12/413826-swami.jpg</image>
     </item>
 </talks>
