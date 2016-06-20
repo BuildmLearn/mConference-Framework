@@ -15,6 +15,16 @@ public class TalkDetails implements Serializable{
     private String desc;
     private String shortDesc;
 
+    public TalkDetails () {
+        this.name = null;
+        this.imageURL = null;
+        this.startTime = null;
+        this.endTime = null;
+        this.location = null;
+        this.desc = null;
+        this.shortDesc = null;
+    }
+
     public TalkDetails(String name, String imageURL, Date startTime, Date endTime, String location, String desc) {
         this.name = name;
         this.imageURL = imageURL;
@@ -71,6 +81,7 @@ public class TalkDetails implements Serializable{
 
     public void setDesc(String desc) {
         this.desc = desc;
+        setShortDesc();
     }
 
     public String getShortDesc() {

@@ -3,20 +3,41 @@ package org.buildmlearn.mconference.constant;
 /**
  * Created by jai on 18/6/16.
  */
-public class Constants {
-    public final static String NAME_TAG = "name";
-    public final static String LOGO_TAG = "logo";
-    public final static String VENUE_TAG = "venue";
-    public final static String TIME_TAG = "venue";
-    public final static String START_TAG = "start";
-    public final static String END_TAG = "end";
-    public final static String SPLASHBG_TAG = "splashbg";
-    public final static String ABOUTBG_TAG = "aboutbg";
-    public final static String DETAILS_TAG = "details";
-    public final static String REGLINK_TAG = "reglink";
-    public final static String SPONSORS_TAG = "sponsors";
-    public final static String ITEM_TAG = "item";
-    public final static String DESC_TAG = "desc";
-    public final static String IMAGE_TAG = "image";
-    public final static String TALKS_TAG = "talks";
+public interface Constants {
+
+    String PARSING_COMPLETE = "parsing complete";
+
+    String NAME_TAG = "name";
+    String LOGO_TAG = "logo";
+    String VENUE_TAG = "venue";
+    String TIME_TAG = "time";
+    String START_TAG = "start";
+    String END_TAG = "end";
+    String SPLASHBG_TAG = "splashbg";
+    String TYPE_ATTR = "type";
+    String ABOUTBG_TAG = "aboutbg";
+    String DETAILS_TAG = "details";
+    String REGLINK_TAG = "reglink";
+    String SPONSORS_TAG = "sponsors";
+    String ITEM_TAG = "item";
+    String DESC_TAG = "desc";
+    String IMAGE_TAG = "image";
+    String TALKS_TAG = "talks";
+
+    String TYPE_ATTR_INDIV = "individual";
+
+
+    //Constants for local Database
+
+    int DATABASE_VERSION = 1;
+    String DATABASE_NAME = "mConference.db";
+    String TABLE_SPONSORS = "sponsors";
+    String TABLE_TALKS = "talks";
+
+    String COLUMN_NAME = "name";
+    String COLUMN_LOCATION = "location";
+    String COLUMN_START = "start";
+    String COLUMN_END = "end";
+    String COLUMN_DESC = "desc";
+    String COLUMN_URL = "url";
 }

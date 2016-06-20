@@ -7,6 +7,11 @@ public class SponsorDetails {
     private String name;
     private String logoURL;
 
+    public SponsorDetails() {
+        this.name = null;
+        this.logoURL = null;
+    }
+
     public SponsorDetails(String name, String logoURL) {
         this.name = name;
         this.logoURL = logoURL;
