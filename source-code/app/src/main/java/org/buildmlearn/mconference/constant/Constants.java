@@ -5,6 +5,8 @@ package org.buildmlearn.mconference.constant;
  */
 public interface Constants {
 
+    String PREFERENCES_FILE_NAME = "PREFS";
+
     String PARSING_COMPLETE = "parsing complete";
 
     String NAME_TAG = "name";
@@ -40,4 +42,14 @@ public interface Constants {
     String COLUMN_END = "end";
     String COLUMN_DESC = "desc";
     String COLUMN_URL = "url";
+
+    String CREATE_TALKS_TABLE = "CREATE TABLE IF NOT EXISTS " +
+            TABLE_TALKS + "("
+            + COLUMN_NAME + " TEXT, " + COLUMN_URL + " TEXT, "
+            + COLUMN_START + " DATETIME, " + COLUMN_END + " DATETIME, "
+            + COLUMN_LOCATION + " TEXT, " + COLUMN_DESC + " TEXT)";
+
+    String CREATE_SPONSORS_TABLE = "CREATE TABLE IF NOT EXISTS " +
+            TABLE_SPONSORS + "("
+            + COLUMN_NAME + " TEXT, " + COLUMN_URL + " TEXT)";
 }

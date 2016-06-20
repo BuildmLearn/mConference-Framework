@@ -20,12 +20,12 @@ import java.util.Date;
  * Created by jai on 17/6/16.
  */
 public class XMLParser implements Constants{
-    XmlPullParserFactory pullParserFactory;
-    SharedPreferences sharedPreferences;
-    SharedPreferences.Editor editor;
-    Database db;
+    static XmlPullParserFactory pullParserFactory;
+    static SharedPreferences sharedPreferences;
+    static SharedPreferences.Editor editor;
+    public static Database db;
 
-    public void parse(Context context) throws XmlPullParserException, IOException{
+    public static void parse(Context context) throws XmlPullParserException, IOException{
 
         InputStream inputStream =  context.getAssets().open("sampleXML.xml");
         try {
@@ -35,18 +35,19 @@ public class XMLParser implements Constants{
             parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
             parser.setInput(inputStream, null);
 
-            readXML(context, parser);
+            db = new Database(context);
+            sharedPreferences = context.getSharedPreferences(PREFERENCES_FILE_NAME, Context.MODE_PRIVATE);
+            editor = sharedPreferences.edit();
+
+            readXML(parser);
         } finally {
             inputStream.close();
         }
     }
 
-    private void readXML(Context context, XmlPullParser parser) throws XmlPullParserException, IOException {
+    private static void readXML(XmlPullParser parser) throws XmlPullParserException, IOException {
         int event = parser.getEventType();
         String text = null;
-        db = new Database(context);
-        sharedPreferences = context.getSharedPreferences("PREFS", Context.MODE_PRIVATE);
-        editor = sharedPreferences.edit();
 
         while (event != XmlPullParser.END_DOCUMENT) {
             String name = parser.getName();
@@ -99,10 +100,10 @@ public class XMLParser implements Constants{
             event = parser.next();
         }
         editor.putBoolean(PARSING_COMPLETE, true);
-        editor.commit();
+        editor.apply();
     }
 
-    private void readTime(XmlPullParser parser) throws XmlPullParserException, IOException {
+    private static void readTime(XmlPullParser parser) throws XmlPullParserException, IOException {
         parser.require(XmlPullParser.START_TAG, null, TIME_TAG);
 
         while (parser.next() != XmlPullParser.END_TAG) {
@@ -117,7 +118,7 @@ public class XMLParser implements Constants{
         }
     }
 
-    private void readSponsors(XmlPullParser parser) throws XmlPullParserException, IOException {
+    private static void readSponsors(XmlPullParser parser) throws XmlPullParserException, IOException {
         parser.require(XmlPullParser.START_TAG, null, SPONSORS_TAG);
         String type = parser.getAttributeValue(null, TYPE_ATTR);
         editor.putString(SPONSORS_TAG + " " + TYPE_ATTR, type);
@@ -142,7 +143,7 @@ public class XMLParser implements Constants{
         parser.require(XmlPullParser.END_TAG, null, SPONSORS_TAG);
     }
 
-    private void readTalks(XmlPullParser parser) throws XmlPullParserException, IOException {
+    private static void readTalks(XmlPullParser parser) throws XmlPullParserException, IOException {
         parser.require(XmlPullParser.START_TAG, null, TALKS_TAG);
         ArrayList<TalkDetails> talks = new ArrayList<>();
 
@@ -157,7 +158,7 @@ public class XMLParser implements Constants{
         parser.require(XmlPullParser.END_TAG, null, TALKS_TAG);
     }
 
-    private SponsorDetails readSponsorItem(XmlPullParser parser) throws XmlPullParserException, IOException {
+    private static SponsorDetails readSponsorItem(XmlPullParser parser) throws XmlPullParserException, IOException {
         parser.require(XmlPullParser.START_TAG, null, ITEM_TAG);
         SponsorDetails sponsor = new SponsorDetails();
 
@@ -166,7 +167,7 @@ public class XMLParser implements Constants{
                 continue;
 
             String name = parser.getName();
-            if (name.equals(DESC_TAG))
+            if (name.equals(NAME_TAG))
                 sponsor.setName(readText(parser));
 
             else if (name.equals(IMAGE_TAG))
@@ -178,7 +179,7 @@ public class XMLParser implements Constants{
         return sponsor;
     }
 
-    private TalkDetails readTalkItem(XmlPullParser parser) throws XmlPullParserException, IOException {
+    private static TalkDetails readTalkItem(XmlPullParser parser) throws XmlPullParserException, IOException {
         parser.require(XmlPullParser.START_TAG, null, ITEM_TAG);
         TalkDetails talk = new TalkDetails();
 
@@ -187,8 +188,11 @@ public class XMLParser implements Constants{
                 continue;
 
             String name = parser.getName();
-            if (name.equals(DESC_TAG))
+            if (name.equals(NAME_TAG))
                 talk.setName(readText(parser));
+
+            else if (name.equals(DESC_TAG))
+                talk.setDesc(readText(parser));
 
             else if (name.equals(START_TAG))
                 talk.setStartTime(new Date(Long.parseLong(readText(parser))));
@@ -208,7 +212,7 @@ public class XMLParser implements Constants{
         return talk;
     }
 
-    private String readText(XmlPullParser parser) throws XmlPullParserException, IOException {
+    private static String readText(XmlPullParser parser) throws XmlPullParserException, IOException {
         String result = "";
 
         if(parser.next() == XmlPullParser.TEXT) {

@@ -16,16 +16,6 @@ import java.util.ArrayList;
  */
 public class Database extends SQLiteOpenHelper implements Constants {
 
-    String CREATE_TALKS_TABLE = "CREATE TABLE IF NOT EXISTS " +
-            TABLE_TALKS + "("
-            + COLUMN_NAME + " TEXT, " + COLUMN_URL + " TEXT, "
-            + COLUMN_START + " DATETIME, " + COLUMN_END + " DATETIME, "
-            + COLUMN_LOCATION + " TEXT, " + COLUMN_DESC + " TEXT)";
-
-    String CREATE_SPONSORS_TABLE = "CREATE TABLE IF NOT EXISTS " +
-            TABLE_SPONSORS + "("
-            + COLUMN_NAME + " TEXT, " + COLUMN_URL + " TEXT)";
-
     public Database(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -68,7 +58,7 @@ public class Database extends SQLiteOpenHelper implements Constants {
             values.put(COLUMN_LOCATION, talk.getLocation());
             values.put(COLUMN_DESC, talk.getDesc());
 
-            db.insert(TABLE_SPONSORS, null, values);
+            db.insert(TABLE_TALKS, null, values);
         }
 
         db.close();
