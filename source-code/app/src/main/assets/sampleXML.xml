@@ -7,8 +7,8 @@
    <end>1457893800000</end><!-- Stored in milliseconds  -->
 </time>
 <splashbg type="image">http://www.example.com/background.jpg</splashbg><!-- Splash Background -->
-<aboutbg>http://www.example.com/image.jpg</aboutbg><!-- Background in About Fragment -->
-<details>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</details><!-- Conference Details-->
+<aboutbg>https://cdn-az.allevents.in/banners/9c4e10fe8efaf771cca752ecd1ff0138</aboutbg><!-- Background in About Fragment -->
+<details>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</details><!-- Conference Details-->
 <reglink>https://www.google.com/forms</reglink><!-- Registration Web Link -->
 <sponsors type="individual"><!-- Sponsors -->
    <item id="1">

@@ -2,6 +2,7 @@ package org.buildmlearn.mconference.database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -62,5 +63,27 @@ public class Database extends SQLiteOpenHelper implements Constants {
         }
 
         db.close();
+    }
+
+    public ArrayList<SponsorDetails> getSponsors() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<SponsorDetails> sponsors = new ArrayList<>();
+
+        String query = "SELECT * FROM " + TABLE_SPONSORS;
+
+        Cursor cursor = db.rawQuery(query, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                SponsorDetails result = new SponsorDetails();
+                result.setName(cursor.getString(cursor.getColumnIndex(COLUMN_NAME)));
+                result.setLogoURL(cursor.getString(cursor.getColumnIndex(COLUMN_URL)));
+
+                sponsors.add(result);
+            } while (cursor.moveToNext());
+        }
+
+        db.close();
+        return sponsors;
     }
 }

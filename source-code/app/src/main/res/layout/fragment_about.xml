@@ -20,7 +20,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/about_image"
-                    android:src="@drawable/placeholder_1"
                     android:scaleType="fitXY"
                     android:adjustViewBounds="true"
                     android:layout_gravity="center_horizontal|top" />
@@ -30,7 +29,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#CFD8DC"
-                    android:text="Conference Name"
                     android:textSize="25dp"
                     android:layout_marginRight="74dp"
                     android:layout_below="@+id/about_image"
@@ -43,7 +41,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/conference_name"
-                    android:text="@string/lorem"
                     android:padding="15dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="5dp"

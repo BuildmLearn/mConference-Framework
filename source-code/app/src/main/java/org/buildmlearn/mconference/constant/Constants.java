@@ -28,7 +28,6 @@ public interface Constants {
 
     String TYPE_ATTR_INDIV = "individual";
 
-
     //Constants for local Database
 
     int DATABASE_VERSION = 1;
@@ -52,4 +51,8 @@ public interface Constants {
     String CREATE_SPONSORS_TABLE = "CREATE TABLE IF NOT EXISTS " +
             TABLE_SPONSORS + "("
             + COLUMN_NAME + " TEXT, " + COLUMN_URL + " TEXT)";
+
+    String LAT = "latitude";
+    String LONG = "lomgitude";
+
 }

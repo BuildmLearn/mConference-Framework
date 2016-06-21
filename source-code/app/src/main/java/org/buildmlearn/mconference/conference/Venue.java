@@ -1,13 +1,12 @@
 package org.buildmlearn.mconference.conference;
 
 import android.app.DialogFragment;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
-import android.telecom.ConnectionRequest;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,11 +24,13 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.buildmlearn.mconference.R;
+import org.buildmlearn.mconference.constant.Constants;
 import org.buildmlearn.mconference.util.PlayServicesUnavailableDialogFragment;
 
-import java.sql.Connection;
+import java.io.IOException;
+import java.util.Locale;
 
-public class Venue extends Fragment {
+public class Venue extends Fragment implements Constants {
 
     private MapView mMapView;
 
@@ -41,8 +42,13 @@ public class Venue extends Fragment {
                 false);
         MapsInitializer.initialize(getActivity().getApplicationContext());
         mMapView = (MapView) v.findViewById(R.id.mapView);
-        TextView VenueAddress = (TextView) v.findViewById(R.id.venue_detail);
-        VenueAddress.setText("Venue Address");
+        TextView address = (TextView) v.findViewById(R.id.venue_detail);
+
+
+        SharedPreferences sharedPref
+                = v.getContext().getSharedPreferences(PREFERENCES_FILE_NAME, Context.MODE_PRIVATE);
+        String venueAddress = sharedPref.getString(VENUE_TAG, null);
+        address.setText(venueAddress);
         mMapView.onCreate(savedInstanceState);
 
         mMapView.onResume();// needed to get the map to display immediately
@@ -51,32 +57,57 @@ public class Venue extends Fragment {
 
         GoogleMap googleMap = mMapView.getMap();
 
-        double latitude = 17.385044;
-        double longitude = 78.486671;
 
-        if(status == ConnectionResult.SUCCESS) {
-            // create marker
-            MarkerOptions marker = new MarkerOptions().position(
-                    new LatLng(latitude, longitude)).title("Hello Maps");
+        double latitude = Double.longBitsToDouble(sharedPref.getLong(LAT, 0));
+        double longitude = Double.longBitsToDouble(sharedPref.getLong(LONG, 0));
+        Address returnedAddress;
 
-            // Changing marker icon
-            marker.icon(BitmapDescriptorFactory
-                    .defaultMarker(BitmapDescriptorFactory.HUE_ROSE));
+        if (latitude == 0 && longitude == 0) {
+            returnedAddress = getAddressFromLocation(v.getContext(), venueAddress);
+            SharedPreferences.Editor editor = sharedPref.edit();
 
-            // adding marker
-            googleMap.addMarker(marker);
-            CameraPosition cameraPosition = new CameraPosition.Builder()
-                    .target(new LatLng(17.385044, 78.486671)).zoom(12).build();
-            googleMap.animateCamera(CameraUpdateFactory
-                    .newCameraPosition(cameraPosition));
+            if (returnedAddress != null) {
+                editor.putLong(LAT, Double.doubleToLongBits(returnedAddress.getLatitude()));
+                editor.putLong(LONG, Double.doubleToLongBits(returnedAddress.getLongitude()));
+
+                latitude = returnedAddress.getLatitude();
+                longitude = returnedAddress.getLongitude();
+            }
         }
 
-        else {
-            DialogFragment dialogFragment = new PlayServicesUnavailableDialogFragment();
-            dialogFragment.show(getActivity().getFragmentManager(), "Play Service Problem");
+            if (status == ConnectionResult.SUCCESS) {
+                // create marker
+                MarkerOptions marker = new MarkerOptions().position(
+                        new LatLng(latitude, longitude)).title(venueAddress);
+
+                // Changing marker icon
+                marker.icon(BitmapDescriptorFactory
+                        .defaultMarker(BitmapDescriptorFactory.HUE_ROSE));
+
+                // adding marker
+                googleMap.addMarker(marker);
+                CameraPosition cameraPosition = new CameraPosition.Builder()
+                        .target(new LatLng(latitude, longitude)).zoom(12).build();
+                googleMap.animateCamera(CameraUpdateFactory
+                        .newCameraPosition(cameraPosition));
+            } else {
+                DialogFragment dialogFragment = new PlayServicesUnavailableDialogFragment();
+                dialogFragment.show(getActivity().getFragmentManager(), "Play Service Problem");
+            }
+
+            return v;
+    }
+
+    public Address getAddressFromLocation (Context context, String locationAddress) {
+        Address address = null;
+        Geocoder geocoder = new Geocoder(context, Locale.getDefault());
+        try {
+            address = geocoder.getFromLocationName(locationAddress, 1).get(0);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        // Perform any camera updates here
-        return v;
+
+        return address;
     }
 
     @Override

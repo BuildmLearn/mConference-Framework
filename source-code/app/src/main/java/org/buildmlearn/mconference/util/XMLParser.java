@@ -2,6 +2,7 @@ package org.buildmlearn.mconference.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import org.buildmlearn.mconference.constant.Constants;
 import org.buildmlearn.mconference.database.Database;
@@ -28,6 +29,7 @@ public class XMLParser implements Constants{
     public static void parse(Context context) throws XmlPullParserException, IOException{
 
         InputStream inputStream =  context.getAssets().open("sampleXML.xml");
+        Log.d("Parse", "parse");
         try {
             pullParserFactory = XmlPullParserFactory.newInstance();
             XmlPullParser parser = pullParserFactory.newPullParser();
@@ -43,6 +45,9 @@ public class XMLParser implements Constants{
         } finally {
             inputStream.close();
         }
+
+        editor.putBoolean(PARSING_COMPLETE, true);
+        editor.apply();
     }
 
     private static void readXML(XmlPullParser parser) throws XmlPullParserException, IOException {
@@ -99,8 +104,6 @@ public class XMLParser implements Constants{
 
             event = parser.next();
         }
-        editor.putBoolean(PARSING_COMPLETE, true);
-        editor.apply();
     }
 
     private static void readTime(XmlPullParser parser) throws XmlPullParserException, IOException {

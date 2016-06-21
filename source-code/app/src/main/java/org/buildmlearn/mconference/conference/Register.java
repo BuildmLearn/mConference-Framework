@@ -1,5 +1,7 @@
 package org.buildmlearn.mconference.conference;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,8 +12,9 @@ import android.webkit.WebView;
 import android.widget.ProgressBar;
 
 import org.buildmlearn.mconference.R;
+import org.buildmlearn.mconference.constant.Constants;
 
-public class Register extends Fragment {
+public class Register extends Fragment implements Constants {
 
     private ProgressBar pbar;
 
@@ -21,12 +24,17 @@ public class Register extends Fragment {
         super.onCreate(savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_register, container, false);
 
+        SharedPreferences sharedPref
+                = view.getContext().getSharedPreferences(PREFERENCES_FILE_NAME, Context.MODE_PRIVATE);
+
         WebView webview = (WebView)view.findViewById(R.id.web);
         pbar = (ProgressBar)view.findViewById(R.id.loading);
         pbar.setVisibility(View.GONE);
         webview.setWebViewClient(new WebViewClient());
         webview.getSettings().setJavaScriptEnabled(true);
-        webview.loadUrl("http://www.google.com");
+
+        String registerURL = sharedPref.getString(REGLINK_TAG, null);
+        webview.loadUrl(registerURL);
 
         return view;
     }
