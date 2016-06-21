@@ -25,7 +25,7 @@ public class Register extends Fragment implements Constants {
         View view = inflater.inflate(R.layout.fragment_register, container, false);
 
         SharedPreferences sharedPref
-                = view.getContext().getSharedPreferences(PREFERENCES_FILE_NAME, Context.MODE_PRIVATE);
+                = getActivity().getApplicationContext().getSharedPreferences(PREFERENCES_FILE_NAME, Context.MODE_PRIVATE);
 
         WebView webview = (WebView)view.findViewById(R.id.web);
         pbar = (ProgressBar)view.findViewById(R.id.loading);

@@ -115,9 +115,9 @@ public class XMLParser implements Constants{
 
             String name = parser.getName();
             if (name.equals(START_TAG))
-                editor.putString(START_TAG, readText(parser));
+                editor.putLong(START_TAG, Long.parseLong(readText(parser)));
             else if (name.equals(END_TAG))
-                editor.putString(END_TAG, readText(parser));
+                editor.putLong(END_TAG, Long.parseLong(readText(parser)));
         }
     }
 

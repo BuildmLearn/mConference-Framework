@@ -16,8 +16,6 @@ import org.buildmlearn.mconference.constant.Constants;
 import org.buildmlearn.mconference.util.XMLParser;
 
 public class Splash extends Activity implements Constants {
-    // Splash screen timer
-    private static int SPLASH_TIME_OUT = 3000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

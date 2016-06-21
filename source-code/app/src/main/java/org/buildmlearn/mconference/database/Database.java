@@ -5,12 +5,14 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import org.buildmlearn.mconference.constant.Constants;
 import org.buildmlearn.mconference.model.SponsorDetails;
 import org.buildmlearn.mconference.model.TalkDetails;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by jai on 19/6/16.
@@ -69,9 +71,7 @@ public class Database extends SQLiteOpenHelper implements Constants {
         SQLiteDatabase db = this.getReadableDatabase();
         ArrayList<SponsorDetails> sponsors = new ArrayList<>();
 
-        String query = "SELECT * FROM " + TABLE_SPONSORS;
-
-        Cursor cursor = db.rawQuery(query, null);
+        Cursor cursor = db.rawQuery(GET_SPONSORS_QUERY, null);
 
         if (cursor.moveToFirst()) {
             do {
@@ -83,7 +83,38 @@ public class Database extends SQLiteOpenHelper implements Constants {
             } while (cursor.moveToNext());
         }
 
+        cursor.close();
         db.close();
         return sponsors;
+    }
+
+    public ArrayList<TalkDetails> getTalks(long startDay){
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<TalkDetails> talks = new ArrayList<>();
+
+        Log.d("jai getTalks", "reached 1");
+        Cursor cursor = db.rawQuery(GET_TALKS_QUERY + startDay + " AND " + (startDay+milliInOneDay), null);
+        Log.d("jai getTalks", "reached 2");
+
+        if (cursor.moveToFirst()) {
+            do {
+                TalkDetails result = new TalkDetails();
+                result.setName(cursor.getString(cursor.getColumnIndex(COLUMN_NAME)));
+                result.setImageURL(cursor.getString(cursor.getColumnIndex(COLUMN_URL)));
+                result.setLocation(cursor.getString(cursor.getColumnIndex(COLUMN_LOCATION)));
+                result.setStartTime(new Date(cursor.getLong(cursor.getColumnIndex(COLUMN_START))));
+                result.setEndTime(new Date(cursor.getLong(cursor.getColumnIndex(COLUMN_END))));
+                result.setDesc(cursor.getString(cursor.getColumnIndex(COLUMN_DESC)));
+
+                talks.add(result);
+            } while (cursor.moveToNext());
+        }
+
+        for (TalkDetails talk: talks)
+            Log.d("jai Talks List: ", talk.getName()+" "+talk.getImageURL()+" "+talk.getLocation() + " ");
+
+        cursor.close();
+        db.close();
+        return talks;
     }
 }

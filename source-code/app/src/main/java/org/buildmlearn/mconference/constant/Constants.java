@@ -5,9 +5,15 @@ package org.buildmlearn.mconference.constant;
  */
 public interface Constants {
 
+    int SPLASH_TIME_OUT = 3000;
+
     String PREFERENCES_FILE_NAME = "PREFS";
 
     String PARSING_COMPLETE = "parsing complete";
+
+    long milliInOneDay = 86400000;
+
+    String DAY_KEY = "day";
 
     String NAME_TAG = "name";
     String LOGO_TAG = "logo";
@@ -51,6 +57,9 @@ public interface Constants {
     String CREATE_SPONSORS_TABLE = "CREATE TABLE IF NOT EXISTS " +
             TABLE_SPONSORS + "("
             + COLUMN_NAME + " TEXT, " + COLUMN_URL + " TEXT)";
+
+    String GET_SPONSORS_QUERY = "SELECT * FROM " + TABLE_SPONSORS;
+    String GET_TALKS_QUERY = "SELECT * FROM " + TABLE_TALKS + " WHERE " + COLUMN_START + " BETWEEN ";
 
     String LAT = "latitude";
     String LONG = "lomgitude";

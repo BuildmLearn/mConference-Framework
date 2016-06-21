@@ -46,7 +46,7 @@ public class Venue extends Fragment implements Constants {
 
 
         SharedPreferences sharedPref
-                = v.getContext().getSharedPreferences(PREFERENCES_FILE_NAME, Context.MODE_PRIVATE);
+                = getActivity().getApplicationContext().getSharedPreferences(PREFERENCES_FILE_NAME, Context.MODE_PRIVATE);
         String venueAddress = sharedPref.getString(VENUE_TAG, null);
         address.setText(venueAddress);
         mMapView.onCreate(savedInstanceState);

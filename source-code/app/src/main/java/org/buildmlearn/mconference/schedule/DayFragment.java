@@ -1,6 +1,8 @@
 package org.buildmlearn.mconference.schedule;
 
 
+import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
@@ -17,15 +19,17 @@ import android.view.ViewGroup;
 
 import org.buildmlearn.mconference.R;
 import org.buildmlearn.mconference.adapters.DayRecyclerView;
+import org.buildmlearn.mconference.constant.Constants;
+import org.buildmlearn.mconference.database.Database;
 import org.buildmlearn.mconference.model.TalkDetails;
 
 import java.util.ArrayList;
-import java.util.Date;
 
-public class DayFragment extends Fragment implements SearchView.OnQueryTextListener {
+public class DayFragment extends Fragment implements SearchView.OnQueryTextListener, Constants {
 
-    private ArrayList<TalkDetails> dummyTalks;
+    private ArrayList<TalkDetails> talks;
     private DayRecyclerView dayAdapter;
+    RecyclerView dayRecyclerView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,22 +37,12 @@ public class DayFragment extends Fragment implements SearchView.OnQueryTextListe
 
         setHasOptionsMenu(true);
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_day, container, false);
-        RecyclerView dayRecyclerView = (RecyclerView) view.findViewById(R.id.day_recycler_view);
+        final View view = inflater.inflate(R.layout.fragment_day, container, false);
+        dayRecyclerView = (RecyclerView) view.findViewById(R.id.day_recycler_view);
         dayRecyclerView.setHasFixedSize(true);
         dayRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        dummyTalks = new ArrayList<>(3);
-        dummyTalks.add(new TalkDetails("Talk #1", "http://blogs.gartner.com/smarterwithgartner/files/2015/03/Guy_Kawasaki_1_inline.jpg",
-                new Date(1472704200000l), new Date(1472707800000l),"Albert Hall", getResources().getString(R.string.lorem)));
-        dummyTalks.add(new TalkDetails("Talk #2", "",
-                new Date(1472715000000l), new Date(1472718600000l), "Nehru Hall", getResources().getString(R.string.lorem)));
-        dummyTalks.add(new TalkDetails("Talk #3", "http://static.dnaindia.com/sites/default/files/styles/half/public/2016/01/12/413826-swami.jpg",
-                new Date(1472722200000l), new Date(1472729400000l), "Gandhi Hall", getResources().getString(R.string.lorem)));
-
-        dayAdapter = new DayRecyclerView(dummyTalks);
-        dayRecyclerView.setAdapter(dayAdapter);
-
+        new populateFragment().execute(view.getContext());
         return view;
     }
 
@@ -69,8 +63,8 @@ public class DayFragment extends Fragment implements SearchView.OnQueryTextListe
 
             @Override
             public boolean onMenuItemActionCollapse(MenuItem item) {
-                Log.d("Reached","Menu Collapse menu");
-                dayAdapter.setFilter(dummyTalks);
+                Log.d("Reached", "Menu Collapse menu");
+                dayAdapter.setFilter(talks);
 
                 return true;
             }
@@ -79,7 +73,7 @@ public class DayFragment extends Fragment implements SearchView.OnQueryTextListe
 
     @Override
     public boolean onQueryTextChange(String query) {
-        ArrayList<TalkDetails> filterList = filter(dummyTalks, query.toLowerCase());
+        ArrayList<TalkDetails> filterList = filter(talks, query.toLowerCase());
         dayAdapter.setFilter(filterList);
         return  true;
     }
@@ -102,5 +96,26 @@ public class DayFragment extends Fragment implements SearchView.OnQueryTextListe
         }
 
         return  filteredList;
+    }
+
+    private class populateFragment extends AsyncTask<Context, Void, Void> {
+
+        protected Void doInBackground(Context... contexts) {
+            Bundle args = new Bundle();
+            long startDayMilli = args.getLong(DAY_KEY);
+
+            Log.d("jai new Thread", "populateFragment");
+            Database db = new Database(contexts[0]);
+            talks = db.getTalks(startDayMilli);
+            return null;
+        }
+
+        @Override
+
+        protected void onPostExecute(Void aVoid) {
+            Log.d("jai done Thread", "populateFragment");
+            dayAdapter = new DayRecyclerView(talks);
+            dayRecyclerView.setAdapter(dayAdapter);
+        }
     }
 }
