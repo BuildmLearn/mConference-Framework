@@ -55,7 +55,7 @@
         <start>1472790600000</start><!-- Stored in milliseconds  -->
         <end>1472794200000</end><!-- Stored in milliseconds  -->
         <venue>Albert Hall</venue>
-        <image>http://blogs.gartner.com/smarterwithgartner/files/2015/03/Guy_Kawasaki_1_inline.jpg</image>
+        <image>http://www.example.com/talk2.jpg</image>
     </item>
     <item id="5">
         <name>Talk #2</name>
@@ -63,7 +63,7 @@
         <start>14727801400000</start><!-- Stored in milliseconds  -->
         <end>147280500000</end><!-- Stored in milliseconds  -->
         <venue>Nehru Hall</venue>
-        <image>http://www.example.com/talk2.jpg</image>
+        <image>http://blogs.gartner.com/smarterwithgartner/files/2015/03/Guy_Kawasaki_1_inline.jpg</image>
     </item>
     <item id="6">
         <name>Talk #3</name>
@@ -79,7 +79,7 @@
         <start>1472877000000</start><!-- Stored in milliseconds  -->
         <end>1472880600000</end><!-- Stored in milliseconds  -->
         <venue>Albert Hall</venue>
-        <image>http://blogs.gartner.com/smarterwithgartner/files/2015/03/Guy_Kawasaki_1_inline.jpg</image>
+        <image>http://static.dnaindia.com/sites/default/files/styles/half/public/2016/01/12/413826-swami.jpg</image>
     </item>
     <item id="8">
         <name>Talk #2</name>
@@ -95,7 +95,7 @@
         <start>1472895000000</start><!-- Stored in milliseconds  -->
         <end>1472902200000</end><!-- Stored in milliseconds  -->
         <venue>Gandhi Hall</venue>
-        <image>http://static.dnaindia.com/sites/default/files/styles/half/public/2016/01/12/413826-swami.jpg</image>
+        <image>http://blogs.gartner.com/smarterwithgartner/files/2015/03/Guy_Kawasaki_1_inline.jpg</image>
     </item>
 </talks>
 </mconference>
