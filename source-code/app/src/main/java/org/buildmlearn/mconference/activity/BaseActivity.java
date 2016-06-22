@@ -1,6 +1,9 @@
 package org.buildmlearn.mconference.activity;
 
+import android.app.TaskStackBuilder;
 import android.content.Intent;
+import android.os.Build;
+import android.os.Handler;
 import android.support.v4.view.GravityCompat;
 import android.content.res.Configuration;
 import android.support.design.widget.NavigationView;
@@ -65,29 +68,29 @@ public class BaseActivity extends AppCompatActivity {
                 .error(R.drawable.placeholder_1)
                 .fit().centerCrop().into(navImage);
 
+
+
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public boolean onNavigationItemSelected(MenuItem item) {
-                Intent i;
+            public boolean onNavigationItemSelected(final MenuItem item) {
 
-                switch (item.getItemId()) {
-                    case R.id.nav_home:
-                        i = new Intent(getBaseContext(), Home.class);
-                        break;
-
-                    case R.id.nav_schedule:
-                        i = new Intent(getBaseContext(), Schedule.class);
-                        break;
-
-                    default:
-                        i = null;
-                        break;
+                if (item.getItemId() == getSelfNavDrawerItem()) {
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                    return true;
                 }
-                item.setChecked(true);
-                drawerLayout.closeDrawers();
 
-                if(i != null)
-                    startActivity(i);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        goToNavDrawerItem(item.getItemId());
+                    }
+                }, 250);
+
+                View mainContent = findViewById(R.id.nav_content_frame);
+                mainContent.animate().alpha(0).setDuration(150);
+
+                drawerLayout.closeDrawer(GravityCompat.START);
+
                 return true;
             }
         });
@@ -97,6 +100,9 @@ public class BaseActivity extends AppCompatActivity {
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         drawerToggle.syncState();
+
+        View mainContent = findViewById(R.id.nav_content_frame);
+        mainContent.animate().alpha(1).setDuration(250);
     }
 
     @Override
@@ -117,5 +123,38 @@ public class BaseActivity extends AppCompatActivity {
         } else {
             super.onBackPressed();
         }
+    }
+
+    private void goToNavDrawerItem(int item) {
+        Intent i = null;
+
+        switch (item) {
+            case R.id.nav_home:
+                i = new Intent(getBaseContext(), Home.class);
+                break;
+
+            case R.id.nav_schedule:
+                i = new Intent(getBaseContext(), Schedule.class);
+                break;
+        }
+
+        if(i != null)
+            createBackStack(i);
+    }
+
+    private void createBackStack(Intent intent) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            TaskStackBuilder builder = TaskStackBuilder.create(this);
+            builder.addNextIntentWithParentStack(intent);
+            builder.startActivities();
+        }
+        else {
+            startActivity(intent);
+            finish();
+        }
+    }
+
+    protected int getSelfNavDrawerItem(){
+        return -1;
     }
 }

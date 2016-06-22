@@ -43,6 +43,14 @@ public class Schedule extends BaseActivity implements Constants {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.schedule_tabs);
         tabLayout.setupWithViewPager(viewPager);
+
+        navigationView.getMenu().getItem(1).setChecked(true);
+        overridePendingTransition(0,0);
+    }
+
+    @Override
+    protected int getSelfNavDrawerItem() {
+        return R.id.nav_schedule;
     }
 
     private void setupViewPager(ViewPager viewPager) {

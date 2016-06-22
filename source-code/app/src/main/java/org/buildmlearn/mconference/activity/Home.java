@@ -14,7 +14,6 @@ import org.buildmlearn.mconference.conference.Sponsor;
 
 public class Home extends BaseActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -30,9 +29,17 @@ public class Home extends BaseActivity {
 
             TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
             tabLayout.setupWithViewPager(viewPager);
+
+            navigationView.getMenu().getItem(0).setChecked(true);
+            overridePendingTransition(0,0);
         }
 
-        private void setupViewPager(ViewPager viewPager) {
+    @Override
+    protected int getSelfNavDrawerItem() {
+        return R.id.nav_home;
+    }
+
+    private void setupViewPager(ViewPager viewPager) {
             TabAdapter adapter = new TabAdapter(getSupportFragmentManager());
             adapter.addFragment(new About(), "About");
             adapter.addFragment(new Venue(), "Venue");

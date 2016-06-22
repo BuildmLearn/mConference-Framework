@@ -32,7 +32,11 @@
         <activity
             android:name=".activity.Schedule"
             android:label="@string/title_schedule"
-            android:launchMode="singleTop" />
+            android:parentActivityName=".activity.Home">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.Home" />
+        </activity>
         <activity
             android:name=".activity.Talk"
             android:label="@string/title_talk">
@@ -40,7 +44,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activity.Schedule" />
         </activity>
-        <activity android:name=".activity.BaseActivity"></activity>
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="4f73f1ad88cf4633b05872a2730dd741d0456614" />
