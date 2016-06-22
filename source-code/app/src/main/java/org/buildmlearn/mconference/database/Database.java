@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import org.buildmlearn.mconference.constant.Constants;
 import org.buildmlearn.mconference.model.SponsorDetails;
@@ -88,13 +87,12 @@ public class Database extends SQLiteOpenHelper implements Constants {
         return sponsors;
     }
 
-    public ArrayList<TalkDetails> getTalks(long startDay){
+    public ArrayList<TalkDetails> getTalks(long startDayMilli){
         SQLiteDatabase db = this.getReadableDatabase();
         ArrayList<TalkDetails> talks = new ArrayList<>();
+        long endDayMilli = startDayMilli + milliInOneDay;
 
-        Log.d("jai getTalks", "reached 1");
-        Cursor cursor = db.rawQuery(GET_TALKS_QUERY + startDay + " AND " + (startDay+milliInOneDay), null);
-        Log.d("jai getTalks", "reached 2");
+        Cursor cursor = db.rawQuery(GET_TALKS_QUERY + startDayMilli + " AND " + endDayMilli, null);
 
         if (cursor.moveToFirst()) {
             do {
@@ -109,9 +107,6 @@ public class Database extends SQLiteOpenHelper implements Constants {
                 talks.add(result);
             } while (cursor.moveToNext());
         }
-
-        for (TalkDetails talk: talks)
-            Log.d("jai Talks List: ", talk.getName()+" "+talk.getImageURL()+" "+talk.getLocation() + " ");
 
         cursor.close();
         db.close();

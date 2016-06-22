@@ -6,7 +6,6 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 
 import org.buildmlearn.mconference.R;
 import org.buildmlearn.mconference.adapters.TabAdapter;
@@ -27,9 +26,7 @@ public class Schedule extends BaseActivity implements Constants {
         SharedPreferences sharedPref
                 = getApplicationContext().getSharedPreferences(PREFERENCES_FILE_NAME, Context.MODE_PRIVATE);
         startTime = sharedPref.getLong(START_TAG, 0);
-        Log.d("Schedule", startTime + "");
         endTime = sharedPref.getLong(END_TAG, 0);
-        Log.d("Schedule", endTime + "");
 
         noOfDays = getNoOfDays(endTime - startTime) + 1;
 
@@ -67,10 +64,11 @@ public class Schedule extends BaseActivity implements Constants {
 
     private DayFragment newDayFragmentInstance(int day){
         DayFragment dayFragment = new DayFragment();
-
         Bundle args = new Bundle();
-        args.putLong(DAY_KEY, startTime + (day - 1) * milliInOneDay);
+        long startDayMilli = startTime + (day - 1) * milliInOneDay;
+        args.putLong(DAY_KEY, startDayMilli);
         dayFragment.setArguments(args);
+
         return dayFragment;
     }
 }

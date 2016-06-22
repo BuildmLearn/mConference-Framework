@@ -11,7 +11,7 @@ public interface Constants {
 
     String PARSING_COMPLETE = "parsing complete";
 
-    long milliInOneDay = 86400000;
+    long milliInOneDay = 86400000l;
 
     String DAY_KEY = "day";
 

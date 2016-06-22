@@ -9,7 +9,6 @@ import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -30,6 +29,7 @@ public class DayFragment extends Fragment implements SearchView.OnQueryTextListe
     private ArrayList<TalkDetails> talks;
     private DayRecyclerView dayAdapter;
     RecyclerView dayRecyclerView;
+    long startDayMilli;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,6 +41,9 @@ public class DayFragment extends Fragment implements SearchView.OnQueryTextListe
         dayRecyclerView = (RecyclerView) view.findViewById(R.id.day_recycler_view);
         dayRecyclerView.setHasFixedSize(true);
         dayRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        Bundle args = this.getArguments();
+        startDayMilli = args.getLong(DAY_KEY);
 
         new populateFragment().execute(view.getContext());
         return view;
@@ -63,9 +66,7 @@ public class DayFragment extends Fragment implements SearchView.OnQueryTextListe
 
             @Override
             public boolean onMenuItemActionCollapse(MenuItem item) {
-                Log.d("Reached", "Menu Collapse menu");
                 dayAdapter.setFilter(talks);
-
                 return true;
             }
         });
@@ -101,10 +102,6 @@ public class DayFragment extends Fragment implements SearchView.OnQueryTextListe
     private class populateFragment extends AsyncTask<Context, Void, Void> {
 
         protected Void doInBackground(Context... contexts) {
-            Bundle args = new Bundle();
-            long startDayMilli = args.getLong(DAY_KEY);
-
-            Log.d("jai new Thread", "populateFragment");
             Database db = new Database(contexts[0]);
             talks = db.getTalks(startDayMilli);
             return null;
@@ -113,7 +110,6 @@ public class DayFragment extends Fragment implements SearchView.OnQueryTextListe
         @Override
 
         protected void onPostExecute(Void aVoid) {
-            Log.d("jai done Thread", "populateFragment");
             dayAdapter = new DayRecyclerView(talks);
             dayRecyclerView.setAdapter(dayAdapter);
         }
