@@ -25,6 +25,7 @@ public class Home extends BaseActivity {
             super.setUpNavDrawer(toolbar);
 
             ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+            viewPager.setOffscreenPageLimit(3);
             setupViewPager(viewPager);
 
             TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
@@ -36,7 +37,7 @@ public class Home extends BaseActivity {
 
     @Override
     protected int getSelfNavDrawerItem() {
-        return R.id.nav_home;
+            return R.id.nav_home;
     }
 
     private void setupViewPager(ViewPager viewPager) {

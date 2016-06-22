@@ -53,6 +53,7 @@ dependencies {
     compile 'com.google.android.gms:play-services-maps:9.0.1'
     compile 'com.google.android.gms:play-services-location:9.0.1'
     compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
     compile 'com.android.support:multidex:1.0.1'
     compile('com.crashlytics.sdk.android:crashlytics:2.5.7@aar') {
         transitive = true;
