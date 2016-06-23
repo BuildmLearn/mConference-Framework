@@ -60,8 +60,8 @@
     <item id="5">
         <name>Talk #2</name>
         <desc>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</desc>
-        <start>14727801400000</start><!-- Stored in milliseconds  -->
-        <end>147280500000</end><!-- Stored in milliseconds  -->
+        <start>1472801400000</start><!-- Stored in milliseconds  -->
+        <end>1472805000000</end><!-- Stored in milliseconds  -->
         <venue>Nehru Hall</venue>
         <image>http://blogs.gartner.com/smarterwithgartner/files/2015/03/Guy_Kawasaki_1_inline.jpg</image>
     </item>

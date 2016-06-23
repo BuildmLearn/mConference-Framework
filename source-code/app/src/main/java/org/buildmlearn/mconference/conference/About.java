@@ -16,8 +16,6 @@ import com.squareup.picasso.Picasso;
 import org.buildmlearn.mconference.R;
 import org.buildmlearn.mconference.constant.Constants;
 
-import java.net.URI;
-
 public class About extends Fragment implements Constants {
 
     @Override

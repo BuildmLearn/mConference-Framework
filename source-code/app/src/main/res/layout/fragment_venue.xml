@@ -1,5 +1,6 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/venue_scrollview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="none"
@@ -9,7 +10,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.gms.maps.MapView
+    <org.buildmlearn.mconference.conference.VenueMapView
         android:id="@+id/mapView"
         android:layout_width="match_parent"
         android:layout_height="300dp"

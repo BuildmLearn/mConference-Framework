@@ -43,6 +43,11 @@ public class BaseActivity extends AppCompatActivity {
 
     protected void setUpNavDrawer(Toolbar toolbar) {
 
+        Picasso.with(this)
+                .load(R.drawable.placeholder_1)
+                .error(R.drawable.placeholder_1)
+                .fit().centerCrop().into(navImage);
+
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, 0, 0)
         {
             public void onDrawerOpened(View v) {
@@ -62,13 +67,6 @@ public class BaseActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_ham);
-
-        Picasso.with(this)
-                .load(R.drawable.placeholder_1)
-                .error(R.drawable.placeholder_1)
-                .fit().centerCrop().into(navImage);
-
-
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
