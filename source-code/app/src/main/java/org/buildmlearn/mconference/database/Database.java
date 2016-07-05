@@ -117,6 +117,24 @@ public class Database extends SQLiteOpenHelper implements Constants {
         SQLiteDatabase db = this.getReadableDatabase();
         ArrayList<TalkDetails> talks = new ArrayList<>();
 
+        Cursor cursor = db.rawQuery(GET_FAV_TALKS_QUERY, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                TalkDetails result = new TalkDetails();
+                result.setName(cursor.getString(cursor.getColumnIndex(COLUMN_NAME)));
+                result.setImageURL(cursor.getString(cursor.getColumnIndex(COLUMN_URL)));
+                result.setLocation(cursor.getString(cursor.getColumnIndex(COLUMN_LOCATION)));
+                result.setStartTime(new Date(cursor.getLong(cursor.getColumnIndex(COLUMN_START))));
+                result.setEndTime(new Date(cursor.getLong(cursor.getColumnIndex(COLUMN_END))));
+                result.setDesc(cursor.getString(cursor.getColumnIndex(COLUMN_DESC)));
+
+                talks.add(result);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
         return talks;
     }
 }

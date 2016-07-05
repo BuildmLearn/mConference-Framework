@@ -62,6 +62,7 @@ public interface Constants {
 
     String GET_SPONSORS_QUERY = "SELECT * FROM " + TABLE_SPONSORS;
     String GET_TALKS_QUERY = "SELECT * FROM " + TABLE_TALKS + " WHERE " + COLUMN_START + " BETWEEN ";
+    String GET_FAV_TALKS_QUERY = "SELECT * FROM " + TABLE_TALKS + " WHERE " + COLUMN_FAVORITE + "=1";
 
     String LAT = "latitude";
     String LONG = "lomgitude";
