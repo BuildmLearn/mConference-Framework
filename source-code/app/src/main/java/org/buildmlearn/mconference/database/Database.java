@@ -112,4 +112,11 @@ public class Database extends SQLiteOpenHelper implements Constants {
         db.close();
         return talks;
     }
+
+    public ArrayList<TalkDetails> getFavTalks(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<TalkDetails> talks = new ArrayList<>();
+
+        return talks;
+    }
 }

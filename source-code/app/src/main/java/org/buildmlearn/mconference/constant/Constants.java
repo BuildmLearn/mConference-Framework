@@ -47,12 +47,14 @@ public interface Constants {
     String COLUMN_END = "end";
     String COLUMN_DESC = "desc";
     String COLUMN_URL = "url";
+    String COLUMN_FAVORITE = "favorite";
 
     String CREATE_TALKS_TABLE = "CREATE TABLE IF NOT EXISTS " +
             TABLE_TALKS + "("
             + COLUMN_NAME + " TEXT, " + COLUMN_URL + " TEXT, "
             + COLUMN_START + " DATETIME, " + COLUMN_END + " DATETIME, "
-            + COLUMN_LOCATION + " TEXT, " + COLUMN_DESC + " TEXT)";
+            + COLUMN_LOCATION + " TEXT, " + COLUMN_FAVORITE + " INTEGER, "
+            + COLUMN_DESC + " TEXT)";
 
     String CREATE_SPONSORS_TABLE = "CREATE TABLE IF NOT EXISTS " +
             TABLE_SPONSORS + "("

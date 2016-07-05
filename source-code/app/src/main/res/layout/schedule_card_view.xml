@@ -86,7 +86,6 @@
                 <Button
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentTop="false"
                     android:layout_weight="0.5"
                     android:layout_marginRight="80dp"
                     android:id="@+id/reminder"
@@ -97,7 +96,6 @@
                 <Button
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentTop="false"
                     android:layout_weight="0.5"
                     android:id="@+id/read_more"
                     android:text="Read More"

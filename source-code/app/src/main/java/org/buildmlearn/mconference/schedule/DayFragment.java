@@ -96,7 +96,7 @@ public class DayFragment extends Fragment implements SearchView.OnQueryTextListe
                 filteredList.add(talkDetails);
         }
 
-        return  filteredList;
+        return filteredList;
     }
 
     private class populateFragment extends AsyncTask<Context, Void, Void> {

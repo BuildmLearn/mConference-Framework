@@ -14,6 +14,7 @@ public class TalkDetails implements Serializable{
     private String location;
     private String desc;
     private String shortDesc;
+    private boolean isFavroite;
 
     public TalkDetails () {
         this.name = null;
@@ -23,6 +24,7 @@ public class TalkDetails implements Serializable{
         this.location = null;
         this.desc = null;
         this.shortDesc = null;
+        this.isFavroite = false;
     }
 
     public TalkDetails(String name, String imageURL, Date startTime, Date endTime, String location, String desc) {
@@ -32,6 +34,7 @@ public class TalkDetails implements Serializable{
         this.endTime = endTime;
         this.location = location;
         this.desc = desc;
+        this.isFavroite = false;
         setShortDesc();
     }
 
@@ -82,6 +85,14 @@ public class TalkDetails implements Serializable{
     public void setDesc(String desc) {
         this.desc = desc;
         setShortDesc();
+    }
+
+    public boolean isFavroite() {
+        return isFavroite;
+    }
+
+    public void setBookmarked(boolean favroite) {
+        isFavroite = favroite;
     }
 
     public String getShortDesc() {
