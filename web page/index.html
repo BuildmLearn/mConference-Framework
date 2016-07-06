@@ -24,34 +24,139 @@
 				</div>
 			</div>
 		</div>
-		<div style="float:left; width:50%;">
+		<div style="float:left; width:45%;">
+          <div class="container">
 			<div class="row">
 			    <form class="col s12">
 				  <div class="row">
 			        <div class="input-field col s6">
-			          <input id="conference_name" type="text" class="validate">
-			          <label for="conference_name">Conference Name</label>
+			          <input id="conference-name" type="text" class="validate">
+			          <label for="conference-name">Conference Name</label>
 			        </div>
 			      </div>
 			      <div class="row">
 			        <div class="input-field col s6">
-			          <input placeholder="Logo URL" id="logo_url" type="url" class="validate">
-			          <label for="logo_url">Logo</label>
+			          <input placeholder="Logo URL" id="logo-url" type="url" class="validate">
+			          <label for="logo-url">Logo</label>
 			      	</div>
 			      </div>
 			      <div class="row">
-			        <div class="input-field col s8">
+			        <div class="input-field col s12">
 			          <input id="venue" type="text" class="validate">
 			          <label for="venue">Venue</label>
 			        </div>
 			      </div>
+                   <div class="row valign-wrapper">
+			        <div class="col s2">
+			          <label class="valign" for="time">Time</label>
+			        </div>
+                     <div class="col s5">
+			          <label for="start-date">Start Date</label>
+                      <input id="start-date" type="date" class="datepicker">
+			        </div>
+                     <div class="col s5">
+			          <label for="end-date">End Date</label>
+                      <input id="end-date" type="date" class="datepicker">
+			        </div>
+			      </div>
+                  <div class="row valign-wrapper">
+			        <div class="col s2">
+			          <label class="valign" for="splash-bg">Splash Background</label>
+			        </div>
+                     <div class="input-field col s5">
+			          <select>
+      					<option value="" disabled selected>Choose your option</option>
+                        <option value="1">Image</option>
+                        <option value="2">Colour</option>
+                        <option value="3">None</option>
+    				</select>
+			        </div>
+                     <div class="input-field col s5">
+			          <input placeholder="Value" id="splash-bg-value" type="text" class="validate">
+			        </div>
+			       </div>
+                   <div class="row">
+       				 <div class="input-field col s12">
+          			 	<textarea id="details" class="materialize-textarea"></textarea>
+          			 	<label for="details">Details about the Conference</label>
+       				</div>
+      			  </div>
+                  <div class="row">
+                  	<div class="input-field col s12">
+			          <input id="reg-link" type="url" class="validate">
+			          <label for="reg-link">Registration Link</label>
+			        </div>
+                  </div>
 			    </form>
   			</div>
+          </div>
 		</div>
 
-		<div style="float:right; width:50%;">
-			
+		<div style="float:right; width:55%;">
+		  <div class="container">
+            <div class="row  valign-wrapper">
+			        <div class="col s2">
+			          <label class="valign center-align" for="talk#1">Talk #1</label>
+			        </div>
+         			<div class="input-field col s10">
+          			 	<textarea id="description#1" class="materialize-textarea"></textarea>
+          			 	<label for="description#1">Description</label>
+			      </div>
+            </div>
+              	<div class="row">
+              		<div class="col s5 offset-s2">
+			          <label for="start-date-1">Start Date</label>
+                      <input id="start-date-1" type="date" class="datepicker">
+			        </div>
+                     <div class="col s5">
+			          <label for="end-date-1">End Date</label>
+                      <input id="end-date-1" type="date" class="datepicker">
+			        </div>
+              </div>
+              <div class="row">
+                  <div class="input-field col s10 offset-s2">
+			         <input id="talk#1-img" type="url" class="validate">
+			         <label for="talk#1-img">Image Link</label>
+			      </div>
+               </div>
+			<br> 
+            <br>
+            	<div class="row  valign-wrapper">
+			        <div class="col s2">
+			          <label class="valign center-align" for="talk#2">Talk #2</label>
+			        </div>
+         			<div class="input-field col s10">
+          			 	<textarea id="description#2" class="materialize-textarea"></textarea>
+          			 	<label for="description#2">Description</label>
+			      </div>
+            </div>
+              	<div class="row">
+              		<div class="col s5 offset-s2">
+			          <label for="start-date-2">Start Date</label>
+                      <input id="start-date-2" type="date" class="datepicker">
+			        </div>
+                     <div class="col s5">
+			          <label for="end-date-2">End Date</label>
+                      <input id="end-date-2" type="date" class="datepicker">
+			        </div>
+              </div>
+              <div class="row">
+                  <div class="input-field col s10 offset-s2">
+			         <input id="talk#2-img" type="url" class="validate">
+			         <label for="talk#2-img">Image Link</label>
+			      </div>
+               </div>
+            </div>
+          </div>
 		</div>
-		</div>
+      <script type="text/javascript">
+          $('.datepicker').pickadate({
+   				selectMonths: true, // Creates a dropdown to control month
+    			selectYears: 15 // Creates a dropdown of 15 years to control year
+  			});
+     	 $(document).ready(function() {
+   					 $('select').material_select();
+  					});
+      </script>
 	</body>
   </html>
