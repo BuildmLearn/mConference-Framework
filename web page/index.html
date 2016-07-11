@@ -57,15 +57,21 @@
                     <label class="valign" for="splash-bg">Splash Background</label>
                   </div>
                   <div class="input-field col s5">
-                    <select name="splash-bg">
-                      <option value="" disabled selected>Choose your option</option>
-                      <option value="1">Image</option>
-                      <option value="2">Colour</option>
-                      <option value="3">None</option>   
+                    <select id="splash-bg" name="splash-bg">
+                      <option value="image" selected>Image</option>
+                      <option value="colour">Colour</option>
+                      <option value="none">None</option>   
                     </select>
                   </div>
                   <div class="input-field col s5">
-                    <input placeholder="Value" id="splash-bg-value" name="splash-bg-value" type="text" class="validate">
+                    <input id="splash-bg-value" name="splash-bg-value" type="url" class="validate">
+                    <label id="splash-bg-label" data-error="URL Invalid" for="splash-bg-value">Image Link</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="about-bg" name="about-bg" type="url" class="validate">
+                    <label data-error="URL Invalid" for="about-bg">About Cover Link</label>
                   </div>
                 </div>
                 <div class="row">
@@ -80,12 +86,50 @@
                     <label data-error="URL Invalid" for="reg-link">Registration Link</label>
                   </div>
                 </div>
+                <div class="row valign-wrapper">
+                  <div class="col s2">
+                    <label class="valign" for="sponsors">Sponsors</label>
+                  </div>
+                  <div class="input-field col s10">
+                    <select id="sponsors" name="sponsors">
+                      <option value="individual" selected>Individual</option>
+                      <option value="webpage">Webpage</option>
+                    </select>
+                  </div>
+                </div>
+                <div id="sponsors-web" class="row">
+                  <div class="input-field col s10 offset-s2">
+                    <input id="sponsors-link" name="sponsors-link" type="url" class="validate">
+                    <label data-error="URL Invalid" for="sponsors-link">Sponsors Webpage</label>
+                  </div>
+                </div>
+                <div id="sponsors-list">
+                  <div id="sponsors-1" class="row">
+                    <div class="input-field col s5 offset-s2">
+                      <input id="sponsor-1-name" name="sponsor-1-name" type="text" class="validate">
+                      <label for="sponsor-1-name">Sponsor#1 Name</label>
+                    </div>
+                    <div class="input-field col s5">
+                      <input id="sponsor-1-link" name="sponsor-1-link" type="url" class="validate">
+                      <label data-error="URL Invalid" for="sponsor-1-link">Image Link</label>
+                    </div>
+                  </div>
+                </div>
+                <div id="add-sponsors" class="row">
+                  <div class="col s12 center">
+                    <a id="add-sponsors-btn" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+                  </div>
+                  <div class="col s12 center" style="margin-top: 7px;">
+                    <label>Add Sponsors</label>
+                  </div>
+                </div>
             </div>
           </div>
         </div>
 
         <div style="float:right; width:55%;">
           <div class="container">
+            <div id="talk-1">
                 <div class="row  valign-wrapper">
                   <div class="col s2">
                     <label class="valign center-align" for="talk-1">Talk #1</label>
@@ -111,8 +155,10 @@
                      <label data-error="URL Invalid" for="talk#1-img">Image Link</label>
                   </div>
                 </div>
-                <br> 
-                <br>
+              </div>
+              <br> 
+              <br>
+              <div id="talk-2">
                 <div class="row  valign-wrapper">
                   <div class="col s2">
                     <label class="valign center-align" for="talk-2">Talk #2</label>
@@ -138,30 +184,33 @@
                     <label data-error="URL Invalid" for="talk#2-img">Image Link</label>
                   </div>
                 </div>
+              </div>
+              <div id="add-talks" class="row">
+                <div class="col s10 offset-s2 center">
+                  <a id="add-talks-btn" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+                </div>
+                <div class="col s10 offset-s2 center" style="margin-top: 7px;">
+                  <label>Add Talks</label>
+                </div>
+              </div>
           </div>
         </div>
-        <div class="">
-          <button class="btn waves-effect waves-light" type="reset" name="reset">Reset
-          </button>
-          <button class="btn waves-effect waves-light" type="submit" name="action">Create
-          </button>
+        <div class="row">
+          <div class="col s12 center">
+            <button class="btn-large waves-effect waves-light" style="margin-right: 5px;" type="reset" name="reset"><i class="material-icons right">clear_all</i>Reset
+            </button>
+            <button class="btn-large waves-effect waves-light" style="margin-left: 5px;" type="submit" name="action"><i class="material-icons right">save</i>Create
+            </button>
+          </div>
         </div>
       </form>
     </div>
 
     <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
     <script type="text/javascript" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/14082/FileSaver.js"></script>
     <script type="text/javascript" src="js/XMLWriter.js"></script>
     <script type="text/javascript" src="js/XMLCreater.js"></script>
-    <script type="text/javascript">
-        $('.datepicker').pickadate({
-        selectMonths: true, // Creates a dropdown to control month
-        selectYears: 15 // Creates a dropdown of 15 years to control year
-      });
-     $(document).ready(function() {
-           $('select').material_select();
-          });
-    </script>
   </body>
 </html>
