@@ -2,6 +2,7 @@
     <head>
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="css/jquery.timepicker.css"  media="screen,projection"/>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
 
@@ -129,61 +130,93 @@
 
         <div style="float:right; width:55%;">
           <div class="container">
-            <div id="talk-1">
-                <div class="row  valign-wrapper">
-                  <div class="col s2">
-                    <label class="valign center-align" for="talk-1">Talk #1</label>
+            <div id="talks-list">
+              <div id="talk-1">
+                  <div class="row  valign-wrapper">
+                    <div class="col s2">
+                      <label class="valign center-align" for="talk-1">Talk #1</label>
+                    </div>
+                    <div class="input-field col s5">
+                      <input id="talk-1-name" name="talk-1-name" type="text" class="validate">
+                      <label for="talk-1-name">Name</label>
+                    </div>
+                    <div class="input-field col s5">
+                      <input id="venue-1" name="venue-1" type="text" class="validate">
+                      <label for="venue-1">Venue</label>
+                    </div>
                   </div>
-                  <div class="input-field col s10">
+                  <div class="row" style="margin-bottom:45px;">
+                    <div class="input-field col s10 offset-s2">
                       <textarea id="description-1" name="description-1" class="materialize-textarea"></textarea>
                       <label for="description-1">Description</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col s4 offset-s2">
+                      <label for="date-1">Date</label>
+                        <input id="date-1" name="date-1" type="date" class="datepicker">
+                    </div>
+                    <div class="col s3">
+                      <label for="start-time-1">Start Time</label>
+                        <input id="start-time-1" name="start-time-1" type="text" autocomplete="on" class="timepicker">
+                    </div>
+                    <div class="col s3">
+                      <label for="end-time-1">End Time</label>
+                        <input id="end-time-1" name="end-time-1" type="text" autocomplete="on" class="timepicker">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s10 offset-s2">
+                       <input id="talk-1-img" name="talk-1-img" type="url" class="validate">
+                       <label data-error="URL Invalid" for="talk-1-img">Image Link</label>
+                    </div>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col s5 offset-s2">
-                    <label for="start-date-1">Start Date</label>
-                      <input id="start-date-1" name="start-date-1" type="date" class="datepicker">
+                <br> 
+                <br>
+                <div id="talk-2">
+                  <div class="row valign-wrapper">
+                    <div class="col s2">
+                      <label class="valign center-align" for="talk-2">Talk #2</label>
+                    </div>
+                    <div class="input-field col s5">
+                      <input id="talk-2-name" name="talk-2-name" type="text" class="validate">
+                      <label for="talk-2-name">Name</label>
+                    </div>
+                    <div class="input-field col s5">
+                      <input id="venue-2" name="venue-2" type="text" class="validate">
+                      <label for="venue-2">Venue</label>
+                    </div>
                   </div>
-                  <div class="col s5">
-                    <label for="end-date-1">End Date</label>
-                      <input id="end-date-1" name="end-date-1" type="date" class="datepicker">
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="input-field col s10 offset-s2">
-                     <input id="talk-1-img" name="talk-1-img" type="url" class="validate">
-                     <label data-error="URL Invalid" for="talk#1-img">Image Link</label>
-                  </div>
-                </div>
-              </div>
-              <br> 
-              <br>
-              <div id="talk-2">
-                <div class="row  valign-wrapper">
-                  <div class="col s2">
-                    <label class="valign center-align" for="talk-2">Talk #2</label>
-                  </div>
-                  <div class="input-field col s10">
+                  <div class="row" style="margin-bottom:45px;">
+                    <div class="input-field col s10 offset-s2">
                       <textarea id="description-2" name="description-2" class="materialize-textarea"></textarea>
                       <label for="description-2">Description</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col s4 offset-s2">
+                      <label for="date-2">Date</label>
+                        <input id="date-2" name="date-2" type="date" class="datepicker">
+                    </div>
+                    <div class="col s3">
+                      <label for="start-time-2">Start Time</label>
+                        <input id="start-time-2" name="start-time-2" type="text" autocomplete="on" class="timepicker">
+                    </div>
+                    <div class="col s3">
+                      <label for="end-time-2">End Time</label>
+                        <input id="end-time-2" name="end-time-2" type="text" autocomplete="on" class="timepicker">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s10 offset-s2">
+                      <input id="talk-2-img" name="talk-2-img" type="url" class="validate">
+                      <label data-error="URL Invalid" for="talk-2-img">Image Link</label>
+                    </div>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col s5 offset-s2">
-                    <label for="start-date-2">Start Date</label>
-                      <input id="start-date-2" name="start-date-2" type="date" class="datepicker">
-                  </div>
-                  <div class="col s5">
-                    <label for="end-date-2">End Date</label>
-                      <input id="end-date-2" name="end-date-2" type="date" class="datepicker">
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="input-field col s10 offset-s2">
-                    <input id="talk-2-img" name="talk-2-img" type="url" class="validate">
-                    <label data-error="URL Invalid" for="talk#2-img">Image Link</label>
-                  </div>
-                </div>
+                <br>
+                <br>
               </div>
               <div id="add-talks" class="row">
                 <div class="col s10 offset-s2 center">
@@ -208,6 +241,7 @@
 
     <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/jquery.timepicker.min.js"></script>
     <script type="text/javascript" src="js/custom.js"></script>
     <script type="text/javascript" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/14082/FileSaver.js"></script>
     <script type="text/javascript" src="js/XMLWriter.js"></script>
