@@ -17,7 +17,7 @@ public class Conference extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            getLayoutInflater().inflate(R.layout.activity_home, frameLayout);
+            getLayoutInflater().inflate(R.layout.activity_conference, frameLayout);
 
             Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);
