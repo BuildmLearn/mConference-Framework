@@ -28,14 +28,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.Home" />
+        <activity android:name=".activity.Conference" />
         <activity
             android:name=".activity.Schedule"
             android:label="@string/title_schedule"
-            android:parentActivityName=".activity.Home">
+            android:parentActivityName=".activity.Conference">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.Home" />
+                android:value=".activity.Conference" />
         </activity>
         <activity
             android:name=".activity.Talk"

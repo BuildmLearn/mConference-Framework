@@ -128,7 +128,7 @@ public class BaseActivity extends AppCompatActivity {
 
         switch (item) {
             case R.id.nav_home:
-                i = new Intent(getBaseContext(), Home.class);
+                i = new Intent(getBaseContext(), Conference.class);
                 break;
 
             case R.id.nav_schedule:

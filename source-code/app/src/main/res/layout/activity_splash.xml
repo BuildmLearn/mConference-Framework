@@ -18,7 +18,7 @@
         android:textSize="24dp"
         android:textColor="#454545"
         android:gravity="center_horizontal"
-        android:text="Conference name"
+        android:text="mConference"
         android:layout_below="@+id/imgLogo"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"

@@ -12,7 +12,7 @@ import org.buildmlearn.mconference.conference.Venue;
 import org.buildmlearn.mconference.conference.Register;
 import org.buildmlearn.mconference.conference.Sponsor;
 
-public class Home extends BaseActivity {
+public class Conference extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -30,7 +30,7 @@ public class Splash extends Activity implements Constants {
 
             @Override
             public void run() {
-                Intent i = new Intent(Splash.this, Home.class);
+                Intent i = new Intent(Splash.this, Conference.class);
                 startActivity(i);
                 finish();
             }
