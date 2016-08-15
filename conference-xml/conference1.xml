@@ -1,0 +1,101 @@
+<mconference>
+<name>Conference #1</name>
+<logo>http://www.example.com/logo.png</logo>
+<venue>The Centre Point, Jamshedpur</venue>
+<time>
+   <start>1472668200000</start><!-- Stored in milliseconds  -->
+   <end>1472841000000</end><!-- Stored in milliseconds  -->
+</time>
+<splashbg type="image">http://www.example.com/background.jpg</splashbg><!-- Splash Background -->
+<aboutbg>https://cdn-az.allevents.in/banners/9c4e10fe8efaf771cca752ecd1ff0138</aboutbg><!-- Background in About Fragment -->
+<details>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</details><!-- Conference Details-->
+<reglink>https://www.google.com/forms</reglink><!-- Registration Web Link -->
+<sponsors type="individual"><!-- Sponsors -->
+   <item id="1">
+       <name>Sponsor #1</name>
+       <image>https://mir-s3-cdn-cf.behance.net/project_modules/disp/3fe6027858667.55e61091bc63d.jpg</image>
+   </item>
+   <item id="2">
+       <name>Sponsor #2</name>
+       <image>https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSJqpA4Kx0817SYkXx4eZKRTOKXBjZOhHIc4mIkevic2qyaqvco</image>
+   </item>
+   <item id="3">
+       <name>Sponsor #3</name>
+       <image>https://developers.google.com/open-source/gsoc/images/gsoc2016-sun-373x373.png</image>
+   </item>
+</sponsors>
+<talks><!-- Talks -->
+   <item id="1">
+       <name>Talk #1</name>
+       <desc>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</desc>
+       <start>1472704200000</start><!-- Stored in milliseconds  -->
+       <end>1472707800000</end><!-- Stored in milliseconds  -->
+       <venue>Albert Hall</venue>
+       <image>http://blogs.gartner.com/smarterwithgartner/files/2015/03/Guy_Kawasaki_1_inline.jpg</image>
+   </item>
+   <item id="2">
+       <name>Talk #2</name>
+       <desc>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</desc>
+       <start>1472715000000</start><!-- Stored in milliseconds  -->
+       <end>1472718600000</end><!-- Stored in milliseconds  -->
+       <venue>Nehru Hall</venue>
+       <image>http://www.example.com/talk2.jpg</image>
+   </item>
+   <item id="3">
+       <name>Talk #3</name>
+       <desc>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</desc>
+       <start>1472722200000</start><!-- Stored in milliseconds  -->
+       <end>1472729400000</end><!-- Stored in milliseconds  -->
+       <venue>Gandhi Hall</venue>
+       <image>http://static.dnaindia.com/sites/default/files/styles/half/public/2016/01/12/413826-swami.jpg</image>
+   </item>
+    <item id="4">
+        <name>Talk #1</name>
+        <desc>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</desc>
+        <start>1472790600000</start><!-- Stored in milliseconds  -->
+        <end>1472794200000</end><!-- Stored in milliseconds  -->
+        <venue>Albert Hall</venue>
+        <image>http://www.example.com/talk2.jpg</image>
+    </item>
+    <item id="5">
+        <name>Talk #2</name>
+        <desc>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</desc>
+        <start>1472801400000</start><!-- Stored in milliseconds  -->
+        <end>1472805000000</end><!-- Stored in milliseconds  -->
+        <venue>Nehru Hall</venue>
+        <image>http://blogs.gartner.com/smarterwithgartner/files/2015/03/Guy_Kawasaki_1_inline.jpg</image>
+    </item>
+    <item id="6">
+        <name>Talk #3</name>
+        <desc>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</desc>
+        <start>1472808600000</start><!-- Stored in milliseconds  -->
+        <end>1472815800000</end><!-- Stored in milliseconds  -->
+        <venue>Gandhi Hall</venue>
+        <image>http://static.dnaindia.com/sites/default/files/styles/half/public/2016/01/12/413826-swami.jpg</image>
+    </item>
+    <item id="7">
+        <name>Talk #1</name>
+        <desc>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</desc>
+        <start>1472877000000</start><!-- Stored in milliseconds  -->
+        <end>1472880600000</end><!-- Stored in milliseconds  -->
+        <venue>Albert Hall</venue>
+        <image>http://static.dnaindia.com/sites/default/files/styles/half/public/2016/01/12/413826-swami.jpg</image>
+    </item>
+    <item id="8">
+        <name>Talk #2</name>
+        <desc>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</desc>
+        <start>1472887800000</start><!-- Stored in milliseconds  -->
+        <end>1472819400000</end><!-- Stored in milliseconds  -->
+        <venue>Nehru Hall</venue>
+        <image>http://www.example.com/talk2.jpg</image>
+    </item>
+    <item id="9">
+        <name>Talk #3</name>
+        <desc>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</desc>
+        <start>1472895000000</start><!-- Stored in milliseconds  -->
+        <end>1472902200000</end><!-- Stored in milliseconds  -->
+        <venue>Gandhi Hall</venue>
+        <image>http://blogs.gartner.com/smarterwithgartner/files/2015/03/Guy_Kawasaki_1_inline.jpg</image>
+    </item>
+</talks>
+</mconference>

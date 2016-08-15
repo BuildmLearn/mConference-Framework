@@ -1,0 +1,49 @@
+<conference>
+	<name>Conference #1</name>
+	<start>1472668200000</start>
+	<venue>The Centre Point, Jamshedpur</venue>
+	<image>https://c402277.ssl.cf1.rackcdn.com/photos/9031/images/original/WWF_25mm_no_tab.png</image>
+	<config>https://raw.githubusercontent.com/BuildmLearn/mConference-Framework/2nd-approach/source-code/conference-xml/conference1.xml</config>
+</conference>
+<conference>
+	<name>Conference #2</name>
+	<start>1472841000000</start>
+	<venue>Indian Habitat Centre, Delhi</venue>
+	<image>http://www.kloover.com/wp-content/uploads/2008/09/detail_google_vertical-225x300.jpg</image>
+	<config>https://raw.githubusercontent.com/BuildmLearn/mConference-Framework/2nd-approach/source-code/conference-xml/conference2.xml</config>
+</conference>
+<conference>
+	<name>Conference #3</name>
+	<start>1473273000000</start>
+	<venue>Blue Diamond, Kolkata</venue>
+	<image>https://developers.google.com/open-source/gsoc/images/gsoc2016-sun-373x373.png</image>
+	<config>https://raw.githubusercontent.com/BuildmLearn/mConference-Framework/2nd-approach/source-code/conference-xml/conference3.xml</config>
+</conference>
+<conference>
+	<name>Conference #4</name>
+	<start>1473273000000</start>
+	<venue>IIM Ahemdabad</venue>
+	<image>http://blogs-images.forbes.com/georgeanders/files/2013/01/225x30011.jpg</image>
+	<config>https://raw.githubusercontent.com/BuildmLearn/mConference-Framework/2nd-approach/source-code/conference-xml/conference4.xml</config>
+</conference>
+<conference>
+	<name>Conference #5</name>
+	<start>1473273000000</start>
+	<venue>BITS Pilani</venue>
+	<image>http://management.ind.in/img/j/MPH-in-BITS-Pilani-1.jpg</image>
+	<config>https://raw.githubusercontent.com/BuildmLearn/mConference-Framework/2nd-approach/source-code/conference-xml/conference5.xml</config>
+</conference>
+<conference>
+	<name>Conference #6</name>
+	<start>1473273000000</start>
+	<venue>Hyderabad</venue>
+	<image>http://i1-news.softpedia-static.com/images/news2/Goodbye-openSUSE-11-2-2.jpg</image>
+	<config>https://raw.githubusercontent.com/BuildmLearn/mConference-Framework/2nd-approach/source-code/conference-xml/conference6.xml</config>
+</conference>
+<conference>
+	<name>Conference #7</name>
+	<start>1473273000000</start>
+	<venue>Kengiri, Bangalore</venue>
+	<image>https://d18lkz4dllo6v2.cloudfront.net/cumulus_uploads/entry/2014-08-08/Wikipedia%20PIC.png?w=660</image>
+	<config>https://raw.githubusercontent.com/BuildmLearn/mConference-Framework/2nd-approach/source-code/conference-xml/conference7.xml</config>
+</conference>
