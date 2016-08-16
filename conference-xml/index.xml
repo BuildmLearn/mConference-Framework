@@ -42,7 +42,7 @@
 </conference>
 <conference>
 	<name>Conference #7</name>
-	<start>1473273000000</start>
+	<start>1473373000000</start>
 	<venue>Kengiri, Bangalore</venue>
 	<image>https://d18lkz4dllo6v2.cloudfront.net/cumulus_uploads/entry/2014-08-08/Wikipedia%20PIC.png?w=660</image>
 	<config>https://raw.githubusercontent.com/BuildmLearn/mConference-Framework/2nd-approach/conference-xml/conference7.xml</config>
