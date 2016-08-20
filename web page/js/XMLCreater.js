@@ -14,6 +14,7 @@ function writeXML(values) {
 	var XML = new XMLWriter();
 	
     XML.BeginNode("mconference");
+    XML.Node("version", values["version"]);
     XML.Node("name", values["conference-name"]);
     XML.Node("logo", values["logo-url"]);
     XML.Node("venue", values["venue"]);
