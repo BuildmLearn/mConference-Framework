@@ -33,6 +33,7 @@ function writeXML(values) {
 	XML.Node("aboutbg", values["about-bg"]);
 	XML.Node("details", values["details"]);
 	XML.Node("reglink", values["reg-link"]);
+	XML.Node("xmlupdatelink", values["xmlupdate-link"]);
 
 	XML.BeginNode("sponsors");
 	XML.Attrib("type", values["sponsors"]);

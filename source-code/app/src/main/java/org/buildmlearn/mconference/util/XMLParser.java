@@ -14,6 +14,7 @@ import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -24,12 +25,25 @@ public class XMLParser implements Constants{
     static XmlPullParserFactory pullParserFactory;
     static SharedPreferences sharedPreferences;
     static SharedPreferences.Editor editor;
+    static String parsedVersion;
     public static Database db;
 
-    public static void parse(Context context) throws XmlPullParserException, IOException{
+    public static void parse(Context context) throws XmlPullParserException, IOException {
 
-        InputStream inputStream =  context.getAssets().open("sampleXML.xml");
+        InputStream inputStream = context.getAssets().open("sampleXML.xml");
+        parseStream(inputStream, context);
+    }
+
+    public static void parseURL(URL url, Context context) throws XmlPullParserException,IOException {
+        InputStream input = url.openStream();
+        parseStream(input, context);
+    }
+
+    private static void parseStream(InputStream inputStream, Context context) throws XmlPullParserException, IOException {
         Log.d("Parse", "parse");
+        sharedPreferences = context.getSharedPreferences(PREFERENCES_FILE_NAME, Context.MODE_PRIVATE);
+        String originalVersion = sharedPreferences.getString("version", "");
+        parsedVersion = sharedPreferences.getString("version", "");
         try {
             pullParserFactory = XmlPullParserFactory.newInstance();
             XmlPullParser parser = pullParserFactory.newPullParser();
@@ -38,7 +52,6 @@ public class XMLParser implements Constants{
             parser.setInput(inputStream, null);
 
             db = new Database(context);
-            sharedPreferences = context.getSharedPreferences(PREFERENCES_FILE_NAME, Context.MODE_PRIVATE);
             editor = sharedPreferences.edit();
 
             readXML(parser);
@@ -47,8 +60,11 @@ public class XMLParser implements Constants{
         }
 
         editor.putBoolean(PARSING_COMPLETE, true);
-        editor.apply();
+        if(!parsedVersion.equals(originalVersion) )
+            editor.apply();
     }
+
+
 
     private static void readXML(XmlPullParser parser) throws XmlPullParserException, IOException {
         int event = parser.getEventType();
@@ -75,7 +91,12 @@ public class XMLParser implements Constants{
                     break;
 
                 case XmlPullParser.END_TAG:
-                    if (name.equals(NAME_TAG))
+                    if (name.equals(VERSION_TAG)) {
+                        editor.putString(VERSION_TAG, text);
+                        parsedVersion = text;
+                    }
+
+                    else if (name.equals(NAME_TAG))
                         editor.putString(NAME_TAG, text);
 
                     else if (name.equals(LOGO_TAG))
@@ -98,6 +119,9 @@ public class XMLParser implements Constants{
 
                     else if (name.equals(REGLINK_TAG))
                         editor.putString(REGLINK_TAG, text);
+
+                    else if (name.equals(XMLUPDATELINK_TAG))
+                        editor.putString(XMLUPDATELINK_TAG, text);
 
                     break;
             }

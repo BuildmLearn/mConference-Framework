@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 
 import com.crashlytics.android.Crashlytics;
 
@@ -15,7 +16,11 @@ import org.buildmlearn.mconference.R;
 import org.buildmlearn.mconference.constant.Constants;
 import org.buildmlearn.mconference.util.XMLParser;
 
+import java.net.URL;
+
 public class Splash extends Activity implements Constants {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +49,10 @@ public class Splash extends Activity implements Constants {
                 try {
                     if(!sharedPref.getBoolean(PARSING_COMPLETE, false))
                         XMLParser.parse(getApplicationContext());
+                    else if(!(sharedPref.getString(XMLUPDATELINK_TAG, "").equals(""))) {
+                        URL url = new URL(sharedPref.getString(XMLUPDATELINK_TAG,""));
+                        XMLParser.parseURL(url, getApplicationContext());
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
