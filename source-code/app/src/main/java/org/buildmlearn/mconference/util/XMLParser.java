@@ -160,6 +160,7 @@ public class XMLParser implements Constants{
                 sponsors.add(readSponsorItem(parser));
             }
 
+            db.removeSponsors();
             db.addSponsor(sponsors);
         }
 
@@ -180,7 +181,7 @@ public class XMLParser implements Constants{
 
             talks.add(readTalkItem(parser));
         }
-
+        db.removeTalks();
         db.addTalks(talks);
         parser.require(XmlPullParser.END_TAG, null, TALKS_TAG);
     }
