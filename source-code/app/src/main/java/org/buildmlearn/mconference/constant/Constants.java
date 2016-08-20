@@ -15,6 +15,7 @@ public interface Constants {
 
     String DAY_KEY = "day";
 
+    String VERSION_TAG = "version";
     String NAME_TAG = "name";
     String LOGO_TAG = "logo";
     String VENUE_TAG = "venue";
@@ -26,6 +27,7 @@ public interface Constants {
     String ABOUTBG_TAG = "aboutbg";
     String DETAILS_TAG = "details";
     String REGLINK_TAG = "reglink";
+    String XMLUPDATELINK_TAG = "xmlupdatelink";
     String SPONSORS_TAG = "sponsors";
     String ITEM_TAG = "item";
     String DESC_TAG = "desc";

@@ -1,4 +1,5 @@
 <mconference>
+    <version>1</version> <!-- version of the data file; increase to trigger data update in app -->
 <name>Conference Name</name>
 <logo>http://www.example.com/logo.png</logo>
 <venue>Indian Habitat Centre, Delhi</venue>
@@ -10,6 +11,7 @@
 <aboutbg>https://cdn-az.allevents.in/banners/9c4e10fe8efaf771cca752ecd1ff0138</aboutbg><!-- Background in About Fragment -->
 <details>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</details><!-- Conference Details-->
 <reglink>https://www.google.com/forms</reglink><!-- Registration Web Link -->
+    <xmlupdatelink>http://www.example.com/data.xml</xmlupdatelink> <!-- location of remote XML file for data updates -->
 <sponsors type="individual"><!-- Sponsors -->
    <item id="1">
        <name>Sponsor #1</name>

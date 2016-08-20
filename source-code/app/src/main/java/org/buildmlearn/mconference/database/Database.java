@@ -48,6 +48,19 @@ public class Database extends SQLiteOpenHelper implements Constants {
         db.close();
     }
 
+    public void removeSponsors() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_SPONSORS, "", null);
+        db.close();
+    }
+
+
+    public void removeTalks() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_TALKS, "", null);
+        db.close();
+    }
+
     public void addTalks(ArrayList<TalkDetails> talks) {
         SQLiteDatabase db = this.getWritableDatabase();
 

@@ -14,6 +14,7 @@ function writeXML(values) {
 	var XML = new XMLWriter();
 	
     XML.BeginNode("mconference");
+    XML.Node("version", values["version"]);
     XML.Node("name", values["conference-name"]);
     XML.Node("logo", values["logo-url"]);
     XML.Node("venue", values["venue"]);
@@ -33,6 +34,7 @@ function writeXML(values) {
 	XML.Node("aboutbg", values["about-bg"]);
 	XML.Node("details", values["details"]);
 	XML.Node("reglink", values["reg-link"]);
+	XML.Node("xmlupdatelink", values["xmlupdate-link"]);
 
 	XML.BeginNode("sponsors");
 	XML.Attrib("type", values["sponsors"]);
