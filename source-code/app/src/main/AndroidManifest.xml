@@ -24,11 +24,16 @@
             android:theme="@android:style/Theme.Black.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.Conference" />
+        <activity android:name=".activity.Conference"
+            android:parentActivityName=".secondapproach.Home"
+            android:launchMode="singleTop">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".secondapproach.Home" />
+        </activity>
         <activity
             android:name=".activity.Schedule"
             android:label="@string/title_schedule"
@@ -49,7 +54,7 @@
             android:name="io.fabric.ApiKey"
             android:value="4f73f1ad88cf4633b05872a2730dd741d0456614" />
 
-        <activity android:name=".activity.Home"></activity>
+        <activity android:name=".secondapproach.Home" />
     </application>
 
 </manifest>

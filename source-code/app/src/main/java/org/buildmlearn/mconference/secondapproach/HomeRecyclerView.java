@@ -1,7 +1,10 @@
-package org.buildmlearn.mconference.adapters;
+package org.buildmlearn.mconference.secondapproach;
 
+import android.content.Intent;
 import android.net.Uri;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +14,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import org.buildmlearn.mconference.R;
-import org.buildmlearn.mconference.model.ConferenceMeta;
+import org.buildmlearn.mconference.activity.Conference;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -24,6 +27,7 @@ public class HomeRecyclerView extends RecyclerView.Adapter<HomeRecyclerView.Conf
     private ArrayList<ConferenceMeta> conferences;
 
     public static class ConferenceMetaObject extends RecyclerView.ViewHolder {
+        public CardView conferenceCardView;
         public ImageView conferenceImage;
         public TextView conferenceName;
         public TextView conferenceDate;
@@ -31,6 +35,7 @@ public class HomeRecyclerView extends RecyclerView.Adapter<HomeRecyclerView.Conf
 
         public  ConferenceMetaObject(View view) {
             super(view);
+            conferenceCardView = (CardView) view.findViewById(R.id.home_card_view);
             conferenceImage = (ImageView) view.findViewById(R.id.conference_card_img);
             conferenceName = (TextView) view.findViewById(R.id.conference_card_name);
             conferenceDate = (TextView) view.findViewById(R.id.conference_card_date);
@@ -51,11 +56,12 @@ public class HomeRecyclerView extends RecyclerView.Adapter<HomeRecyclerView.Conf
     }
 
     @Override
-    public void onBindViewHolder(ConferenceMetaObject holder, int position) {
+    public void onBindViewHolder(ConferenceMetaObject holder, final int position) {
+        Log.d("URL", conferences.get(position).getLogoURL());
         Picasso.with(holder.conferenceImage.getContext())
                 .load(Uri.parse(conferences.get(position).getLogoURL()))
                 .error(R.drawable.placeholder_1)
-                .fit().centerCrop().into(holder.conferenceImage);
+                .into(holder.conferenceImage);
         holder.conferenceName.setText(conferences.get(position).getName());
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("d MMM''yy");
@@ -63,10 +69,26 @@ public class HomeRecyclerView extends RecyclerView.Adapter<HomeRecyclerView.Conf
         holder.conferenceDate.setText(conferenceDateText);
 
         holder.conferenceVenue.setText(conferences.get(position).getVenue());
+
+        holder.conferenceCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    Intent i = new Intent(v.getContext(), Conference.class);
+                    i.putExtra("URL", conferences.get(position).getConfigURL());
+                v.getContext().startActivity(i);
+            }
+        });
+
     }
 
     @Override
     public int getItemCount() {
         return conferences.size();
+    }
+
+    public void setFilter(ArrayList<ConferenceMeta> confList) {
+        conferences = new ArrayList<>();
+        conferences.addAll(confList);
+        notifyDataSetChanged();
     }
 }

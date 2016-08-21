@@ -1,5 +1,8 @@
 package org.buildmlearn.mconference.activity;
 
+import android.content.Context;
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -11,8 +14,16 @@ import org.buildmlearn.mconference.conference.About;
 import org.buildmlearn.mconference.conference.Venue;
 import org.buildmlearn.mconference.conference.Register;
 import org.buildmlearn.mconference.conference.Sponsor;
+import org.buildmlearn.mconference.constant.Constants;
+import org.buildmlearn.mconference.util.XMLParser;
 
-public class Conference extends BaseActivity {
+import java.io.IOException;
+import java.net.URL;
+
+public class Conference extends BaseActivity implements Constants {
+
+    ViewPager viewPager;
+    TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,15 +35,26 @@ public class Conference extends BaseActivity {
 
             super.setUpNavDrawer(toolbar);
 
-            ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+            viewPager = (ViewPager) findViewById(R.id.viewpager);
             viewPager.setOffscreenPageLimit(3);
-            setupViewPager(viewPager);
 
-            TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-            tabLayout.setupWithViewPager(viewPager);
+            tabLayout = (TabLayout) findViewById(R.id.tabs);
 
             navigationView.getMenu().getItem(0).setChecked(true);
             overridePendingTransition(0,0);
+
+            URL url = null;
+            if (SECOND_APPROACH) {
+                Intent i = getIntent();
+                try {
+                        url = new URL(i.getStringExtra("URL"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            populateConference task = new populateConference(this);
+            task.execute(url);
         }
 
     @Override
@@ -48,4 +70,38 @@ public class Conference extends BaseActivity {
             adapter.addFragment(new Sponsor(), "Sponsors");
             viewPager.setAdapter(adapter);
         }
+
+
+    private class populateConference extends AsyncTask<URL, Void, Void> {
+
+        private Context mContext;
+        public populateConference (Context context){
+            mContext = context;
+        }
+
+        protected Void doInBackground(URL... urls) {
+            if (SECOND_APPROACH) {
+                try {
+                    XMLParser.parse(mContext, urls[0]);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            setupViewPager(viewPager);
+            tabLayout.setupWithViewPager(viewPager);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (!SECOND_APPROACH)
+            System.exit(1);
+
+        super.onBackPressed();
+    }
 }

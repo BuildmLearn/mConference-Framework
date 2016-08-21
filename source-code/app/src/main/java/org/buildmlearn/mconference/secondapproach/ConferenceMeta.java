@@ -1,4 +1,4 @@
-package org.buildmlearn.mconference.model;
+package org.buildmlearn.mconference.secondapproach;
 
 import java.util.Date;
 
@@ -18,6 +18,7 @@ public class ConferenceMeta {
         this.name = null;
         this.date = null;
         this.venue = null;
+        this.logoURL = null;
         this.configURL = null;
         this.isFavroite = false;
     }

@@ -5,6 +5,8 @@ package org.buildmlearn.mconference.constant;
  */
 public interface Constants {
 
+    boolean SECOND_APPROACH = true; //false for 1st approach
+
     int SPLASH_TIME_OUT = 3000;
 
     String PREFERENCES_FILE_NAME = "PREFS";
@@ -12,6 +14,8 @@ public interface Constants {
     String PARSING_COMPLETE = "parsing complete";
 
     long milliInOneDay = 86400000l;
+
+    String INDEX_FILE_URL = "https://raw.githubusercontent.com/BuildmLearn/mConference-Framework/2nd-approach/conference-xml/index.xml";
 
     String DAY_KEY = "day";
 
@@ -31,6 +35,8 @@ public interface Constants {
     String DESC_TAG = "desc";
     String IMAGE_TAG = "image";
     String TALKS_TAG = "talks";
+    String CONFERENCE_TAG = "conference";
+    String CONFIG_URL_TAG = "config";
 
     String TYPE_ATTR_INDIV = "individual";
 

@@ -103,7 +103,7 @@ public class Venue extends Fragment implements Constants {
 
             Address returnedAddress;
 
-            if (latitude == 0 && longitude == 0) {
+            if (latitude == 0 && longitude == 0 || SECOND_APPROACH) {
                 returnedAddress = getAddressFromLocation(getContext(), venueAddress);
                 SharedPreferences.Editor editor = sharedPref.edit();
 

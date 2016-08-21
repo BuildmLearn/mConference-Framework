@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <android.support.v7.widget.CardView
-        android:id="@+id/card_view"
+        android:id="@+id/home_card_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         card_view:cardUseCompatPadding="true"
-        card_view:cardCornerRadius="8dp"
-        android:layout_marginBottom="16dp">
+        card_view:cardCornerRadius="2dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -20,41 +18,42 @@
 
             <ImageView
                 android:id="@+id/conference_card_img"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
                 android:src="@drawable/placeholder_1"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/conference_card_name"
-                android:padding="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
+                android:padding="2dp"
+                android:layout_marginTop="2dp"
                 android:layout_below="@+id/conference_card_img"
                 android:text="Conference #1"
+                android:textStyle="bold"
                 android:gravity="center"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/conference_card_date"
-                android:padding="10dp"
-                android:layout_marginLeft="10dp"
+                android:padding="2dp"
                 android:layout_below="@+id/conference_card_name"
                 android:text="10 Oct'16"
+                android:textSize="10dp"
                 android:gravity="center"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/conference_card_venue"
-                android:padding="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginBottom="10dp"
+                android:padding="2dp"
+                android:layout_marginBottom="2dp"
                 android:layout_below="@+id/conference_card_date"
                 android:text="IHC, Delhi"
+                android:textSize="10dp"
                 android:gravity="center"/>
 
         </RelativeLayout>

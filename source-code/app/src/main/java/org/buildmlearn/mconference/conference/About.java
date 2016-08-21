@@ -36,6 +36,8 @@ public class About extends Fragment implements Constants {
         String aboutImgURL = sharedPref.getString(ABOUTBG_TAG, null);
         String conferenceDesc = sharedPref.getString(DETAILS_TAG, null);
 
+        getActivity().setTitle(conferenceName);
+
         name.setText(conferenceName);
         Picasso.with(view.getContext())
                 .load(Uri.parse(aboutImgURL))

@@ -13,6 +13,7 @@ import io.fabric.sdk.android.Fabric;
 
 import org.buildmlearn.mconference.R;
 import org.buildmlearn.mconference.constant.Constants;
+import org.buildmlearn.mconference.secondapproach.Home;
 import org.buildmlearn.mconference.util.XMLParser;
 
 public class Splash extends Activity implements Constants {
@@ -30,24 +31,30 @@ public class Splash extends Activity implements Constants {
 
             @Override
             public void run() {
-                Intent i = new Intent(Splash.this, Conference.class);
+                Intent i;
+                if (SECOND_APPROACH)
+                    i = new Intent(Splash.this, Home.class);
+
+                else
+                    i = new Intent(Splash.this, Conference.class);
+
                 startActivity(i);
                 finish();
             }
         }, SPLASH_TIME_OUT);
 
-
-        new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-                try {
-                    if(!sharedPref.getBoolean(PARSING_COMPLETE, false))
-                        XMLParser.parse(getApplicationContext());
-                } catch (Exception e) {
-                    e.printStackTrace();
+        if (!SECOND_APPROACH) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        if (!sharedPref.getBoolean(PARSING_COMPLETE, false))
+                            XMLParser.parse(getApplicationContext(), null);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
-            }
-        }).start();
+            }).start();
+        }
     }
 }

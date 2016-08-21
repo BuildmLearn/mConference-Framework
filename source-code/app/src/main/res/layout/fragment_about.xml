@@ -30,7 +30,6 @@
                     android:layout_height="wrap_content"
                     android:background="#CFD8DC"
                     android:textSize="25dp"
-                    android:layout_marginRight="74dp"
                     android:layout_below="@+id/about_image"
                     android:paddingLeft="23dp"
                     android:paddingTop="8dp"
@@ -58,13 +57,6 @@
             </RelativeLayout>
 
     </android.support.v4.widget.NestedScrollView>
-
-        <android.support.design.widget.FloatingActionButton
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="24dp"
-            app:layout_anchor="@id/about_image"
-            app:layout_anchorGravity="bottom|right|end"/>
 
     </android.support.design.widget.CoordinatorLayout>
 

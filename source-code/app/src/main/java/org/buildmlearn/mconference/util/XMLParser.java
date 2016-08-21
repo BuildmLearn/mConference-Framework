@@ -12,8 +12,11 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
+import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -21,33 +24,57 @@ import java.util.Date;
  * Created by jai on 17/6/16.
  */
 public class XMLParser implements Constants{
+
     static XmlPullParserFactory pullParserFactory;
+    static XmlPullParser parser;
     static SharedPreferences sharedPreferences;
     static SharedPreferences.Editor editor;
     public static Database db;
 
-    public static void parse(Context context) throws XmlPullParserException, IOException{
+    public static void parse(Context context, URL url) throws XmlPullParserException, IOException{
 
-        InputStream inputStream =  context.getAssets().open("sampleXML.xml");
+        InputStream inputStream = null;
+
+        pullParserFactory = XmlPullParserFactory.newInstance();
+        parser = pullParserFactory.newPullParser();
+        parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
+
+        db = new Database(context);
+        sharedPreferences = context.getSharedPreferences(PREFERENCES_FILE_NAME, Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
         Log.d("Parse", "parse");
+
+        if (SECOND_APPROACH) {
+            fetchXML(url);
+        }
+        else {
+            inputStream = context.getAssets().open("sampleXML.xml");
+
+            try {
+                parser.setInput(inputStream, null);
+                readXML(parser);
+            } finally {
+                inputStream.close();
+            }
+            editor.putBoolean(PARSING_COMPLETE, true);
+        }
+        editor.apply();
+    }
+
+    private static void fetchXML(URL url) throws XmlPullParserException, IOException{
+        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+        InputStream inputStream = null;
+        Log.d("Parse Url:", url.getPath());
+
         try {
-            pullParserFactory = XmlPullParserFactory.newInstance();
-            XmlPullParser parser = pullParserFactory.newPullParser();
-
-            parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
+            inputStream = new BufferedInputStream(urlConnection.getInputStream());
             parser.setInput(inputStream, null);
-
-            db = new Database(context);
-            sharedPreferences = context.getSharedPreferences(PREFERENCES_FILE_NAME, Context.MODE_PRIVATE);
-            editor = sharedPreferences.edit();
-
             readXML(parser);
         } finally {
+            urlConnection.disconnect();
             inputStream.close();
         }
-
-        editor.putBoolean(PARSING_COMPLETE, true);
-        editor.apply();
     }
 
     private static void readXML(XmlPullParser parser) throws XmlPullParserException, IOException {
@@ -56,6 +83,8 @@ public class XMLParser implements Constants{
 
         while (event != XmlPullParser.END_DOCUMENT) {
             String name = parser.getName();
+            if (text != null)
+                Log.d("Parse: "+name, text);
 
             switch (event) {
                 case XmlPullParser.START_TAG:
