@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import org.buildmlearn.mconference.R;
 import org.buildmlearn.mconference.adapters.TabAdapter;
@@ -22,8 +24,9 @@ import java.net.URL;
 
 public class Conference extends BaseActivity implements Constants {
 
-    ViewPager viewPager;
-    TabLayout tabLayout;
+    private ViewPager viewPager;
+    private TabLayout tabLayout;
+    private ProgressBar bar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +56,8 @@ public class Conference extends BaseActivity implements Constants {
                 }
             }
 
+            bar = (ProgressBar) this.findViewById(R.id.progressBar_conference);
+
             populateConference task = new populateConference(this);
             task.execute(url);
         }
@@ -79,6 +84,12 @@ public class Conference extends BaseActivity implements Constants {
             mContext = context;
         }
 
+        @Override
+        protected void onPreExecute(){
+            bar.setVisibility(View.VISIBLE);
+        }
+
+        @Override
         protected Void doInBackground(URL... urls) {
             if (SECOND_APPROACH) {
                 try {
@@ -92,6 +103,7 @@ public class Conference extends BaseActivity implements Constants {
 
         @Override
         protected void onPostExecute(Void aVoid) {
+            bar.setVisibility(View.GONE);
             setupViewPager(viewPager);
             tabLayout.setupWithViewPager(viewPager);
         }

@@ -11,11 +11,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import org.buildmlearn.mconference.R;
 import org.buildmlearn.mconference.constant.Constants;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 
 public class Home extends AppCompatActivity implements SearchView.OnQueryTextListener, Constants{
@@ -23,7 +24,7 @@ public class Home extends AppCompatActivity implements SearchView.OnQueryTextLis
     private ArrayList<ConferenceMeta> conferences;
     private HomeRecyclerView homeAdapter;
     RecyclerView homeRecyclerView;
-    InputStream inputStream;
+    private ProgressBar bar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,8 @@ public class Home extends AppCompatActivity implements SearchView.OnQueryTextLis
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.home_toolbar);
         setSupportActionBar(toolbar);
+
+        bar = (ProgressBar) this.findViewById(R.id.progressBar_home);
 
         new populateActivity().execute();
     }
@@ -89,6 +92,12 @@ public class Home extends AppCompatActivity implements SearchView.OnQueryTextLis
 
     private class populateActivity extends AsyncTask<Void, Void, Void> {
 
+        @Override
+        protected void onPreExecute(){
+            bar.setVisibility(View.VISIBLE);
+        }
+
+        @Override
         protected Void doInBackground(Void... voids) {
             try {
                 conferences = IndexParser.parseIndex();
@@ -100,6 +109,7 @@ public class Home extends AppCompatActivity implements SearchView.OnQueryTextLis
 
         @Override
         protected void onPostExecute(Void aVoid) {
+            bar.setVisibility(View.GONE);
             homeRecyclerView = (RecyclerView) findViewById(R.id.home_recycler_view);
             homeRecyclerView.setHasFixedSize(true);
             homeRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,1));
