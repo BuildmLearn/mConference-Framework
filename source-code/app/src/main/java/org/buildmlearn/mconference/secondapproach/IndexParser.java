@@ -42,7 +42,8 @@ public class IndexParser implements Constants{
             readIndex(parser);
         } finally {
             urlConnection.disconnect();
-            inputStream.close();
+            if(inputStream!=null)
+                inputStream.close();
         }
 
         return conferences;

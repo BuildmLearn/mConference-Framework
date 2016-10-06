@@ -83,7 +83,9 @@ public class HomeRecyclerView extends RecyclerView.Adapter<HomeRecyclerView.Conf
 
     @Override
     public int getItemCount() {
-        return conferences.size();
+        if(conferences!=null)
+            return conferences.size();
+        return 0;
     }
 
     public void setFilter(ArrayList<ConferenceMeta> confList) {

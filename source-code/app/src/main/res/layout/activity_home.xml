@@ -28,11 +28,23 @@
         android:layout_below="@+id/home_toolbar"
         android:paddingLeft="8dp"
         android:paddingRight="8dp">
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/home_recycler_view"
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:src="@drawable/noitems"
+            android:id="@+id/noItems"
+            android:visibility="gone"/>
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/home_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </android.support.v4.widget.SwipeRefreshLayout>
     </RelativeLayout>
 
 </RelativeLayout>
