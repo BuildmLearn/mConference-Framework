@@ -37,6 +37,7 @@ public class Database extends SQLiteOpenHelper implements Constants {
 
     public void addSponsor(ArrayList<SponsorDetails> sponsors) {
         SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("delete from "+ TABLE_SPONSORS);
 
         for (SponsorDetails sponsor : sponsors) {
             ContentValues values = new ContentValues();
@@ -59,7 +60,6 @@ public class Database extends SQLiteOpenHelper implements Constants {
             values.put(COLUMN_END, talk.getEndTime().getTime());
             values.put(COLUMN_LOCATION, talk.getLocation());
             values.put(COLUMN_DESC, talk.getDesc());
-
             db.insert(TABLE_TALKS, null, values);
         }
 
@@ -77,13 +77,13 @@ public class Database extends SQLiteOpenHelper implements Constants {
                 SponsorDetails result = new SponsorDetails();
                 result.setName(cursor.getString(cursor.getColumnIndex(COLUMN_NAME)));
                 result.setLogoURL(cursor.getString(cursor.getColumnIndex(COLUMN_URL)));
-
                 sponsors.add(result);
             } while (cursor.moveToNext());
         }
 
         cursor.close();
         db.close();
+
         return sponsors;
     }
 
